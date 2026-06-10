@@ -1,0 +1,1127 @@
++ set -e
++ cd /home/hadoop/sube
++ echo '========== 1. Python 环境 =========='
+========== 1. Python 环境 ==========
++ '[' '!' -d .venv ']'
++ source .venv/bin/activate
+++ deactivate nondestructive
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
+++ '[' -n '' ']'
+++ unset VIRTUAL_ENV
+++ unset VIRTUAL_ENV_PROMPT
+++ '[' '!' nondestructive = nondestructive ']'
+++ '[' linux-gnu = cygwin ']'
+++ '[' linux-gnu = msys ']'
+++ export VIRTUAL_ENV=/home/hadoop/sube/.venv
+++ VIRTUAL_ENV=/home/hadoop/sube/.venv
+++ _OLD_VIRTUAL_PATH=/home/hadoop/sube/.venv/bin:/usr/local/spark/bin:/usr/local/hadoop/sbin:/usr/local/hadoop/bin:/usr/local/java/jdk1.8.0_202/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/usr/local/hadoop/bin:/usr/local/hadoop/sbin:/usr/local/spark/bin:/usr/local/spark/sbin
+++ PATH=/home/hadoop/sube/.venv/bin:/home/hadoop/sube/.venv/bin:/usr/local/spark/bin:/usr/local/hadoop/sbin:/usr/local/hadoop/bin:/usr/local/java/jdk1.8.0_202/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/usr/local/hadoop/bin:/usr/local/hadoop/sbin:/usr/local/spark/bin:/usr/local/spark/sbin
+++ export PATH
+++ '[' -n '' ']'
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ PS1='(.venv) '
+++ export PS1
+++ VIRTUAL_ENV_PROMPT='(.venv) '
+++ export VIRTUAL_ENV_PROMPT
+++ hash -r
++ pip install -r requirements.txt
+Requirement already satisfied: pandas>=2.0.0 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (3.0.3)
+Requirement already satisfied: numpy>=1.24.0 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 2)) (2.4.6)
+Requirement already satisfied: scikit-learn>=1.3.0 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 3)) (1.9.0)
+Requirement already satisfied: gensim>=4.3.0 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 4)) (4.4.0)
+Requirement already satisfied: jieba>=0.42.1 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 5)) (0.42.1)
+Requirement already satisfied: joblib>=1.3.0 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 6)) (1.5.3)
+Requirement already satisfied: streamlit>=1.25.0 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 7)) (1.58.0)
+Requirement already satisfied: pyspark>=3.5.0 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 8)) (4.1.2)
+Requirement already satisfied: jupyter>=1.0.0 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 9)) (1.1.1)
+Requirement already satisfied: matplotlib>=3.7.0 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 10)) (3.10.9)
+Requirement already satisfied: openpyxl>=3.1.0 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 11)) (3.1.5)
+Requirement already satisfied: python-dateutil>=2.8.2 in ./.venv/lib/python3.12/site-packages (from pandas>=2.0.0->-r requirements.txt (line 1)) (2.9.0.post0)
+Requirement already satisfied: scipy>=1.10.0 in ./.venv/lib/python3.12/site-packages (from scikit-learn>=1.3.0->-r requirements.txt (line 3)) (1.17.1)
+Requirement already satisfied: narwhals>=2.0.1 in ./.venv/lib/python3.12/site-packages (from scikit-learn>=1.3.0->-r requirements.txt (line 3)) (2.22.1)
+Requirement already satisfied: threadpoolctl>=3.5.0 in ./.venv/lib/python3.12/site-packages (from scikit-learn>=1.3.0->-r requirements.txt (line 3)) (3.6.0)
+Requirement already satisfied: smart_open>=1.8.1 in ./.venv/lib/python3.12/site-packages (from gensim>=4.3.0->-r requirements.txt (line 4)) (7.6.1)
+Requirement already satisfied: altair!=5.4.0,!=5.4.1,<7,>=4.0 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (6.2.1)
+Requirement already satisfied: blinker<2,>=1.5.0 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (1.9.0)
+Requirement already satisfied: cachetools<8,>=5.5 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (7.1.4)
+Requirement already satisfied: click<9,>=7.0 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (8.4.1)
+Requirement already satisfied: gitpython!=3.1.19,<4,>=3.0.7 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (3.1.50)
+Requirement already satisfied: packaging>=20 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (26.2)
+Requirement already satisfied: pillow<13,>=7.1.0 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (12.2.0)
+Requirement already satisfied: pydeck<1,>=0.8.0b4 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (0.9.2)
+Requirement already satisfied: protobuf<8,>=3.20 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (7.35.0)
+Requirement already satisfied: pyarrow>=7.0 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (24.0.0)
+Requirement already satisfied: requests<3,>=2.27 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (2.34.2)
+Requirement already satisfied: tenacity<10,>=8.1.0 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (9.1.4)
+Requirement already satisfied: toml<2,>=0.10.1 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (0.10.2)
+Requirement already satisfied: typing-extensions<5,>=4.10.0 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (4.15.0)
+Requirement already satisfied: starlette>=0.40.0 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (1.2.1)
+Requirement already satisfied: uvicorn>=0.30.0 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (0.49.0)
+Requirement already satisfied: httptools>=0.6.3 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (0.8.0)
+Requirement already satisfied: anyio>=4.0.0 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (4.13.0)
+Requirement already satisfied: python-multipart>=0.0.10 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (0.0.32)
+Requirement already satisfied: websockets>=12.0.0 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (16.0)
+Requirement already satisfied: itsdangerous>=2.1.2 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (2.2.0)
+Requirement already satisfied: watchdog<7,>=2.1.5 in ./.venv/lib/python3.12/site-packages (from streamlit>=1.25.0->-r requirements.txt (line 7)) (6.0.0)
+Requirement already satisfied: py4j<0.10.9.10,>=0.10.9.7 in ./.venv/lib/python3.12/site-packages (from pyspark>=3.5.0->-r requirements.txt (line 8)) (0.10.9.9)
+Requirement already satisfied: notebook in ./.venv/lib/python3.12/site-packages (from jupyter>=1.0.0->-r requirements.txt (line 9)) (7.5.7)
+Requirement already satisfied: jupyter-console in ./.venv/lib/python3.12/site-packages (from jupyter>=1.0.0->-r requirements.txt (line 9)) (6.6.3)
+Requirement already satisfied: nbconvert in ./.venv/lib/python3.12/site-packages (from jupyter>=1.0.0->-r requirements.txt (line 9)) (7.17.1)
+Requirement already satisfied: ipykernel in ./.venv/lib/python3.12/site-packages (from jupyter>=1.0.0->-r requirements.txt (line 9)) (7.3.0)
+Requirement already satisfied: ipywidgets in ./.venv/lib/python3.12/site-packages (from jupyter>=1.0.0->-r requirements.txt (line 9)) (8.1.8)
+Requirement already satisfied: jupyterlab in ./.venv/lib/python3.12/site-packages (from jupyter>=1.0.0->-r requirements.txt (line 9)) (4.5.8)
+Requirement already satisfied: contourpy>=1.0.1 in ./.venv/lib/python3.12/site-packages (from matplotlib>=3.7.0->-r requirements.txt (line 10)) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in ./.venv/lib/python3.12/site-packages (from matplotlib>=3.7.0->-r requirements.txt (line 10)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in ./.venv/lib/python3.12/site-packages (from matplotlib>=3.7.0->-r requirements.txt (line 10)) (4.63.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in ./.venv/lib/python3.12/site-packages (from matplotlib>=3.7.0->-r requirements.txt (line 10)) (1.5.0)
+Requirement already satisfied: pyparsing>=3 in ./.venv/lib/python3.12/site-packages (from matplotlib>=3.7.0->-r requirements.txt (line 10)) (3.3.2)
+Requirement already satisfied: et-xmlfile in ./.venv/lib/python3.12/site-packages (from openpyxl>=3.1.0->-r requirements.txt (line 11)) (2.0.0)
+Requirement already satisfied: jinja2 in ./.venv/lib/python3.12/site-packages (from altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit>=1.25.0->-r requirements.txt (line 7)) (3.1.6)
+Requirement already satisfied: jsonschema>=3.0 in ./.venv/lib/python3.12/site-packages (from altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit>=1.25.0->-r requirements.txt (line 7)) (4.26.0)
+Requirement already satisfied: idna>=2.8 in ./.venv/lib/python3.12/site-packages (from anyio>=4.0.0->streamlit>=1.25.0->-r requirements.txt (line 7)) (3.18)
+Requirement already satisfied: gitdb<5,>=4.0.1 in ./.venv/lib/python3.12/site-packages (from gitpython!=3.1.19,<4,>=3.0.7->streamlit>=1.25.0->-r requirements.txt (line 7)) (4.0.12)
+Requirement already satisfied: six>=1.5 in ./.venv/lib/python3.12/site-packages (from python-dateutil>=2.8.2->pandas>=2.0.0->-r requirements.txt (line 1)) (1.17.0)
+Requirement already satisfied: charset_normalizer<4,>=2 in ./.venv/lib/python3.12/site-packages (from requests<3,>=2.27->streamlit>=1.25.0->-r requirements.txt (line 7)) (3.4.7)
+Requirement already satisfied: urllib3<3,>=1.26 in ./.venv/lib/python3.12/site-packages (from requests<3,>=2.27->streamlit>=1.25.0->-r requirements.txt (line 7)) (2.7.0)
+Requirement already satisfied: certifi>=2023.5.7 in ./.venv/lib/python3.12/site-packages (from requests<3,>=2.27->streamlit>=1.25.0->-r requirements.txt (line 7)) (2026.5.20)
+Requirement already satisfied: wrapt in ./.venv/lib/python3.12/site-packages (from smart_open>=1.8.1->gensim>=4.3.0->-r requirements.txt (line 4)) (2.2.1)
+Requirement already satisfied: h11>=0.8 in ./.venv/lib/python3.12/site-packages (from uvicorn>=0.30.0->streamlit>=1.25.0->-r requirements.txt (line 7)) (0.16.0)
+Requirement already satisfied: comm>=0.1.1 in ./.venv/lib/python3.12/site-packages (from ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.2.3)
+Requirement already satisfied: debugpy>=1.6.5 in ./.venv/lib/python3.12/site-packages (from ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (1.8.21)
+Requirement already satisfied: ipython>=7.23.1 in ./.venv/lib/python3.12/site-packages (from ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (9.14.1)
+Requirement already satisfied: jupyter-client>=8.9.0 in ./.venv/lib/python3.12/site-packages (from ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (8.9.1)
+Requirement already satisfied: jupyter-core!=6.0.*,>=5.1 in ./.venv/lib/python3.12/site-packages (from ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (5.9.1)
+Requirement already satisfied: matplotlib-inline>=0.1 in ./.venv/lib/python3.12/site-packages (from ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.2.2)
+Requirement already satisfied: nest-asyncio2>=1.7.0 in ./.venv/lib/python3.12/site-packages (from ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (1.7.2)
+Requirement already satisfied: psutil>=5.7 in ./.venv/lib/python3.12/site-packages (from ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (7.2.2)
+Requirement already satisfied: pyzmq>=25 in ./.venv/lib/python3.12/site-packages (from ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (27.1.0)
+Requirement already satisfied: tornado>=6.4.1 in ./.venv/lib/python3.12/site-packages (from ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (6.5.7)
+Requirement already satisfied: traitlets>=5.4.0 in ./.venv/lib/python3.12/site-packages (from ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (5.15.1)
+Requirement already satisfied: widgetsnbextension~=4.0.14 in ./.venv/lib/python3.12/site-packages (from ipywidgets->jupyter>=1.0.0->-r requirements.txt (line 9)) (4.0.15)
+Requirement already satisfied: jupyterlab_widgets~=3.0.15 in ./.venv/lib/python3.12/site-packages (from ipywidgets->jupyter>=1.0.0->-r requirements.txt (line 9)) (3.0.16)
+Requirement already satisfied: prompt-toolkit>=3.0.30 in ./.venv/lib/python3.12/site-packages (from jupyter-console->jupyter>=1.0.0->-r requirements.txt (line 9)) (3.0.52)
+Requirement already satisfied: pygments in ./.venv/lib/python3.12/site-packages (from jupyter-console->jupyter>=1.0.0->-r requirements.txt (line 9)) (2.20.0)
+Requirement already satisfied: async-lru>=1.0.0 in ./.venv/lib/python3.12/site-packages (from jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (2.3.0)
+Requirement already satisfied: httpx<1,>=0.25.0 in ./.venv/lib/python3.12/site-packages (from jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.28.1)
+Requirement already satisfied: jupyter-lsp>=2.0.0 in ./.venv/lib/python3.12/site-packages (from jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (2.3.1)
+Requirement already satisfied: jupyter-server<3,>=2.4.0 in ./.venv/lib/python3.12/site-packages (from jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (2.19.0)
+Requirement already satisfied: jupyterlab-server<3,>=2.28.0 in ./.venv/lib/python3.12/site-packages (from jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (2.28.0)
+Requirement already satisfied: notebook-shim>=0.2 in ./.venv/lib/python3.12/site-packages (from jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.2.4)
+Requirement already satisfied: setuptools>=41.1.0 in ./.venv/lib/python3.12/site-packages (from jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (82.0.1)
+Requirement already satisfied: beautifulsoup4 in ./.venv/lib/python3.12/site-packages (from nbconvert->jupyter>=1.0.0->-r requirements.txt (line 9)) (4.15.0)
+Requirement already satisfied: bleach!=5.0.0 in ./.venv/lib/python3.12/site-packages (from bleach[css]!=5.0.0->nbconvert->jupyter>=1.0.0->-r requirements.txt (line 9)) (6.4.0)
+Requirement already satisfied: defusedxml in ./.venv/lib/python3.12/site-packages (from nbconvert->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.7.1)
+Requirement already satisfied: jupyterlab-pygments in ./.venv/lib/python3.12/site-packages (from nbconvert->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.3.0)
+Requirement already satisfied: markupsafe>=2.0 in ./.venv/lib/python3.12/site-packages (from nbconvert->jupyter>=1.0.0->-r requirements.txt (line 9)) (3.0.3)
+Requirement already satisfied: mistune<4,>=2.0.3 in ./.venv/lib/python3.12/site-packages (from nbconvert->jupyter>=1.0.0->-r requirements.txt (line 9)) (3.2.1)
+Requirement already satisfied: nbclient>=0.5.0 in ./.venv/lib/python3.12/site-packages (from nbconvert->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.11.0)
+Requirement already satisfied: nbformat>=5.7 in ./.venv/lib/python3.12/site-packages (from nbconvert->jupyter>=1.0.0->-r requirements.txt (line 9)) (5.10.4)
+Requirement already satisfied: pandocfilters>=1.4.1 in ./.venv/lib/python3.12/site-packages (from nbconvert->jupyter>=1.0.0->-r requirements.txt (line 9)) (1.5.1)
+Requirement already satisfied: webencodings in ./.venv/lib/python3.12/site-packages (from bleach!=5.0.0->bleach[css]!=5.0.0->nbconvert->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.5.1)
+Requirement already satisfied: tinycss2>=1.1.0 in ./.venv/lib/python3.12/site-packages (from bleach[css]!=5.0.0->nbconvert->jupyter>=1.0.0->-r requirements.txt (line 9)) (1.5.1)
+Requirement already satisfied: smmap<6,>=3.0.1 in ./.venv/lib/python3.12/site-packages (from gitdb<5,>=4.0.1->gitpython!=3.1.19,<4,>=3.0.7->streamlit>=1.25.0->-r requirements.txt (line 7)) (5.0.3)
+Requirement already satisfied: httpcore==1.* in ./.venv/lib/python3.12/site-packages (from httpx<1,>=0.25.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (1.0.9)
+Requirement already satisfied: decorator>=5.1.0 in ./.venv/lib/python3.12/site-packages (from ipython>=7.23.1->ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (5.3.1)
+Requirement already satisfied: ipython-pygments-lexers>=1.0.0 in ./.venv/lib/python3.12/site-packages (from ipython>=7.23.1->ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (1.1.1)
+Requirement already satisfied: jedi>=0.18.2 in ./.venv/lib/python3.12/site-packages (from ipython>=7.23.1->ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.20.0)
+Requirement already satisfied: pexpect>4.6 in ./.venv/lib/python3.12/site-packages (from ipython>=7.23.1->ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (4.9.0)
+Requirement already satisfied: stack_data>=0.6.0 in ./.venv/lib/python3.12/site-packages (from ipython>=7.23.1->ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.6.3)
+Requirement already satisfied: attrs>=22.2.0 in ./.venv/lib/python3.12/site-packages (from jsonschema>=3.0->altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit>=1.25.0->-r requirements.txt (line 7)) (26.1.0)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in ./.venv/lib/python3.12/site-packages (from jsonschema>=3.0->altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit>=1.25.0->-r requirements.txt (line 7)) (2025.9.1)
+Requirement already satisfied: referencing>=0.28.4 in ./.venv/lib/python3.12/site-packages (from jsonschema>=3.0->altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit>=1.25.0->-r requirements.txt (line 7)) (0.37.0)
+Requirement already satisfied: rpds-py>=0.25.0 in ./.venv/lib/python3.12/site-packages (from jsonschema>=3.0->altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit>=1.25.0->-r requirements.txt (line 7)) (2026.5.1)
+Requirement already satisfied: platformdirs>=2.5 in ./.venv/lib/python3.12/site-packages (from jupyter-core!=6.0.*,>=5.1->ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (4.10.0)
+Requirement already satisfied: argon2-cffi>=21.1 in ./.venv/lib/python3.12/site-packages (from jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (25.1.0)
+Requirement already satisfied: jupyter-events>=0.11.0 in ./.venv/lib/python3.12/site-packages (from jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.12.1)
+Requirement already satisfied: jupyter-server-terminals>=0.4.4 in ./.venv/lib/python3.12/site-packages (from jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.5.4)
+Requirement already satisfied: prometheus-client>=0.9 in ./.venv/lib/python3.12/site-packages (from jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.25.0)
+Requirement already satisfied: send2trash>=1.8.2 in ./.venv/lib/python3.12/site-packages (from jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (2.1.0)
+Requirement already satisfied: terminado>=0.8.3 in ./.venv/lib/python3.12/site-packages (from jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.18.1)
+Requirement already satisfied: websocket-client>=1.7 in ./.venv/lib/python3.12/site-packages (from jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (1.9.0)
+Requirement already satisfied: babel>=2.10 in ./.venv/lib/python3.12/site-packages (from jupyterlab-server<3,>=2.28.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (2.18.0)
+Requirement already satisfied: json5>=0.9.0 in ./.venv/lib/python3.12/site-packages (from jupyterlab-server<3,>=2.28.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.14.0)
+Requirement already satisfied: fastjsonschema>=2.15 in ./.venv/lib/python3.12/site-packages (from nbformat>=5.7->nbconvert->jupyter>=1.0.0->-r requirements.txt (line 9)) (2.21.2)
+Requirement already satisfied: wcwidth in ./.venv/lib/python3.12/site-packages (from prompt-toolkit>=3.0.30->jupyter-console->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.8.1)
+Requirement already satisfied: soupsieve>=1.6.1 in ./.venv/lib/python3.12/site-packages (from beautifulsoup4->nbconvert->jupyter>=1.0.0->-r requirements.txt (line 9)) (2.8.4)
+Requirement already satisfied: argon2-cffi-bindings in ./.venv/lib/python3.12/site-packages (from argon2-cffi>=21.1->jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (25.1.0)
+Requirement already satisfied: parso<0.9.0,>=0.8.6 in ./.venv/lib/python3.12/site-packages (from jedi>=0.18.2->ipython>=7.23.1->ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.8.7)
+Requirement already satisfied: python-json-logger>=2.0.4 in ./.venv/lib/python3.12/site-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (4.1.0)
+Requirement already satisfied: pyyaml>=5.3 in ./.venv/lib/python3.12/site-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (6.0.3)
+Requirement already satisfied: rfc3339-validator in ./.venv/lib/python3.12/site-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.1.4)
+Requirement already satisfied: rfc3986-validator>=0.1.1 in ./.venv/lib/python3.12/site-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.1.1)
+Requirement already satisfied: ptyprocess>=0.5 in ./.venv/lib/python3.12/site-packages (from pexpect>4.6->ipython>=7.23.1->ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.7.0)
+Requirement already satisfied: executing>=1.2.0 in ./.venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=7.23.1->ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (2.2.1)
+Requirement already satisfied: asttokens>=2.1.0 in ./.venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=7.23.1->ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (3.0.1)
+Requirement already satisfied: pure-eval in ./.venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=7.23.1->ipykernel->jupyter>=1.0.0->-r requirements.txt (line 9)) (0.2.3)
+Requirement already satisfied: fqdn in ./.venv/lib/python3.12/site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (1.5.1)
+Requirement already satisfied: isoduration in ./.venv/lib/python3.12/site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (20.11.0)
+Requirement already satisfied: jsonpointer>1.13 in ./.venv/lib/python3.12/site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (3.1.1)
+Requirement already satisfied: rfc3987-syntax>=1.1.0 in ./.venv/lib/python3.12/site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (1.1.0)
+Requirement already satisfied: uri-template in ./.venv/lib/python3.12/site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (1.3.0)
+Requirement already satisfied: webcolors>=24.6.0 in ./.venv/lib/python3.12/site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (25.10.0)
+Requirement already satisfied: cffi>=1.0.1 in ./.venv/lib/python3.12/site-packages (from argon2-cffi-bindings->argon2-cffi>=21.1->jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (2.0.0)
+Requirement already satisfied: pycparser in ./.venv/lib/python3.12/site-packages (from cffi>=1.0.1->argon2-cffi-bindings->argon2-cffi>=21.1->jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (3.0)
+Requirement already satisfied: lark>=1.2.2 in ./.venv/lib/python3.12/site-packages (from rfc3987-syntax>=1.1.0->jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (1.3.1)
+Requirement already satisfied: arrow>=0.15.0 in ./.venv/lib/python3.12/site-packages (from isoduration->jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (1.4.0)
+Requirement already satisfied: tzdata in ./.venv/lib/python3.12/site-packages (from arrow>=0.15.0->isoduration->jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter>=1.0.0->-r requirements.txt (line 9)) (2026.2)
++ echo '========== 2. 启动 HDFS / YARN =========='
+========== 2. 启动 HDFS / YARN ==========
++ start-dfs.sh
+Starting namenodes on [localhost]
+localhost: namenode is running as process 3723.  Stop it first and ensure /tmp/hadoop-hadoop-namenode.pid file is empty before retry.
+Starting datanodes
+localhost: datanode is running as process 3861.  Stop it first and ensure /tmp/hadoop-hadoop-datanode.pid file is empty before retry.
+Starting secondary namenodes [hadoop]
+hadoop: secondarynamenode is running as process 4111.  Stop it first and ensure /tmp/hadoop-hadoop-secondarynamenode.pid file is empty before retry.
++ start-yarn.sh
+Starting resourcemanager
+resourcemanager is running as process 4307.  Stop it first and ensure /tmp/hadoop-hadoop-resourcemanager.pid file is empty before retry.
+Starting nodemanagers
+localhost: nodemanager is running as process 4447.  Stop it first and ensure /tmp/hadoop-hadoop-nodemanager.pid file is empty before retry.
++ true
++ echo '========== 3. HDFS 检查 =========='
+========== 3. HDFS 检查 ==========
++ hdfs dfs -ls /
+Found 2 items
+drwxr-xr-x   - hadoop supergroup          0 2026-06-08 17:09 /resume_matching
+drwxr-xr-x   - hadoop supergroup          0 2026-05-30 01:52 /user
++ echo '========== 4. 创建 HDFS 目录 =========='
+========== 4. 创建 HDFS 目录 ==========
++ hdfs dfs -mkdir -p /resume_matching/raw_data
++ hdfs dfs -mkdir -p /resume_matching/results
++ echo '========== 5. 上传数据 =========='
+========== 5. 上传数据 ==========
++ hdfs dfs -put -f data/resumes.csv /resume_matching/raw_data/resumes.csv
++ hdfs dfs -put -f data/jobs.csv /resume_matching/raw_data/jobs.csv
++ echo '========== 6. 运行 Spark =========='
+========== 6. 运行 Spark ==========
++ hdfs dfs -rm -r -f /resume_matching/results/match_results
++ spark-submit src/spark_match_pipeline.py --resumes hdfs:///resume_matching/raw_data/resumes.csv --jobs hdfs:///resume_matching/raw_data/jobs.csv --output hdfs:///resume_matching/results/match_results
+26/06/10 17:28:20 INFO SparkContext: Running Spark version 3.5.1
+26/06/10 17:28:20 INFO SparkContext: OS info Linux, 6.17.0-14-generic, amd64
+26/06/10 17:28:20 INFO SparkContext: Java version 1.8.0_202
+26/06/10 17:28:20 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/06/10 17:28:20 INFO ResourceUtils: ==============================================================
+26/06/10 17:28:20 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/06/10 17:28:20 INFO ResourceUtils: ==============================================================
+26/06/10 17:28:20 INFO SparkContext: Submitted application: ResumeJobSparkMatching
+26/06/10 17:28:20 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/06/10 17:28:20 INFO ResourceProfile: Limiting resource is cpu
+26/06/10 17:28:20 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/06/10 17:28:20 INFO SecurityManager: Changing view acls to: hadoop
+26/06/10 17:28:20 INFO SecurityManager: Changing modify acls to: hadoop
+26/06/10 17:28:20 INFO SecurityManager: Changing view acls groups to: 
+26/06/10 17:28:20 INFO SecurityManager: Changing modify acls groups to: 
+26/06/10 17:28:20 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: hadoop; groups with view permissions: EMPTY; users with modify permissions: hadoop; groups with modify permissions: EMPTY
+26/06/10 17:28:21 INFO Utils: Successfully started service 'sparkDriver' on port 40803.
+26/06/10 17:28:21 INFO SparkEnv: Registering MapOutputTracker
+26/06/10 17:28:21 INFO SparkEnv: Registering BlockManagerMaster
+26/06/10 17:28:21 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/06/10 17:28:21 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/06/10 17:28:21 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/06/10 17:28:21 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-d4d40022-12c0-4f34-95ca-c8ae749da104
+26/06/10 17:28:21 INFO MemoryStore: MemoryStore started with capacity 366.3 MiB
+26/06/10 17:28:21 INFO SparkEnv: Registering OutputCommitCoordinator
+26/06/10 17:28:21 INFO JettyUtils: Start Jetty 127.0.0.1:4040 for SparkUI
+26/06/10 17:28:21 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/06/10 17:28:21 INFO Executor: Starting executor ID driver on host localhost
+26/06/10 17:28:21 INFO Executor: OS info Linux, 6.17.0-14-generic, amd64
+26/06/10 17:28:21 INFO Executor: Java version 1.8.0_202
+26/06/10 17:28:21 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/06/10 17:28:21 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@234c3076 for default.
+26/06/10 17:28:21 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 35133.
+26/06/10 17:28:21 INFO NettyBlockTransferService: Server created on localhost:35133
+26/06/10 17:28:21 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/06/10 17:28:21 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, localhost, 35133, None)
+26/06/10 17:28:21 INFO BlockManagerMasterEndpoint: Registering block manager localhost:35133 with 366.3 MiB RAM, BlockManagerId(driver, localhost, 35133, None)
+26/06/10 17:28:21 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, localhost, 35133, None)
+26/06/10 17:28:21 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, localhost, 35133, None)
+26/06/10 17:28:21 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+26/06/10 17:28:21 INFO SharedState: Warehouse path is 'file:/home/hadoop/sube/spark-warehouse'.
+26/06/10 17:28:22 INFO InMemoryFileIndex: It took 49 ms to list leaf files for 1 paths.
+26/06/10 17:28:22 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/06/10 17:28:24 INFO FileSourceStrategy: Pushed Filters: 
+26/06/10 17:28:24 INFO FileSourceStrategy: Post-Scan Filters: (length(trim(value#0, None)) > 0)
+26/06/10 17:28:24 INFO CodeGenerator: Code generated in 144.483818 ms
+26/06/10 17:28:24 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 351.0 KiB, free 366.0 MiB)
+26/06/10 17:28:24 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 34.6 KiB, free 365.9 MiB)
+26/06/10 17:28:24 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on localhost:35133 (size: 34.6 KiB, free: 366.3 MiB)
+26/06/10 17:28:24 INFO SparkContext: Created broadcast 0 from csv at NativeMethodAccessorImpl.java:0
+26/06/10 17:28:24 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/06/10 17:28:24 INFO SparkContext: Starting job: csv at NativeMethodAccessorImpl.java:0
+26/06/10 17:28:24 INFO DAGScheduler: Got job 0 (csv at NativeMethodAccessorImpl.java:0) with 1 output partitions
+26/06/10 17:28:24 INFO DAGScheduler: Final stage: ResultStage 0 (csv at NativeMethodAccessorImpl.java:0)
+26/06/10 17:28:24 INFO DAGScheduler: Parents of final stage: List()
+26/06/10 17:28:24 INFO DAGScheduler: Missing parents: List()
+26/06/10 17:28:24 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[3] at csv at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/06/10 17:28:24 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 13.5 KiB, free 365.9 MiB)
+26/06/10 17:28:24 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 6.4 KiB, free 365.9 MiB)
+26/06/10 17:28:24 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on localhost:35133 (size: 6.4 KiB, free: 366.3 MiB)
+26/06/10 17:28:24 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:24 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[3] at csv at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/06/10 17:28:24 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+26/06/10 17:28:25 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (localhost, executor driver, partition 0, ANY, 8236 bytes) 
+26/06/10 17:28:25 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+26/06/10 17:28:25 INFO CodeGenerator: Code generated in 9.022775 ms
+26/06/10 17:28:25 INFO FileScanRDD: Reading File path: hdfs://localhost:9000/resume_matching/raw_data/resumes.csv, range: 0-3322, partition values: [empty row]
+26/06/10 17:28:25 INFO CodeGenerator: Code generated in 7.032631 ms
+26/06/10 17:28:25 INFO LineRecordReader: Found UTF-8 BOM and skipped it
+26/06/10 17:28:25 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1777 bytes result sent to driver
+26/06/10 17:28:25 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 327 ms on localhost (executor driver) (1/1)
+26/06/10 17:28:25 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+26/06/10 17:28:25 INFO DAGScheduler: ResultStage 0 (csv at NativeMethodAccessorImpl.java:0) finished in 0.432 s
+26/06/10 17:28:25 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+26/06/10 17:28:25 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+26/06/10 17:28:25 INFO DAGScheduler: Job 0 finished: csv at NativeMethodAccessorImpl.java:0, took 0.488868 s
+26/06/10 17:28:25 INFO CodeGenerator: Code generated in 9.899141 ms
+26/06/10 17:28:25 INFO FileSourceStrategy: Pushed Filters: 
+26/06/10 17:28:25 INFO FileSourceStrategy: Post-Scan Filters: 
+26/06/10 17:28:25 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 351.0 KiB, free 365.6 MiB)
+26/06/10 17:28:25 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 34.6 KiB, free 365.5 MiB)
+26/06/10 17:28:25 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on localhost:35133 (size: 34.6 KiB, free: 366.2 MiB)
+26/06/10 17:28:25 INFO SparkContext: Created broadcast 2 from csv at NativeMethodAccessorImpl.java:0
+26/06/10 17:28:25 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/06/10 17:28:25 INFO SparkContext: Starting job: csv at NativeMethodAccessorImpl.java:0
+26/06/10 17:28:25 INFO DAGScheduler: Got job 1 (csv at NativeMethodAccessorImpl.java:0) with 1 output partitions
+26/06/10 17:28:25 INFO DAGScheduler: Final stage: ResultStage 1 (csv at NativeMethodAccessorImpl.java:0)
+26/06/10 17:28:25 INFO DAGScheduler: Parents of final stage: List()
+26/06/10 17:28:25 INFO DAGScheduler: Missing parents: List()
+26/06/10 17:28:25 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[9] at csv at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/06/10 17:28:25 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 27.8 KiB, free 365.5 MiB)
+26/06/10 17:28:25 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 12.8 KiB, free 365.5 MiB)
+26/06/10 17:28:25 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on localhost:35133 (size: 12.8 KiB, free: 366.2 MiB)
+26/06/10 17:28:25 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:25 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[9] at csv at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/06/10 17:28:25 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks resource profile 0
+26/06/10 17:28:25 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1) (localhost, executor driver, partition 0, ANY, 8236 bytes) 
+26/06/10 17:28:25 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+26/06/10 17:28:25 INFO CodeGenerator: Code generated in 4.783132 ms
+26/06/10 17:28:25 INFO FileScanRDD: Reading File path: hdfs://localhost:9000/resume_matching/raw_data/resumes.csv, range: 0-3322, partition values: [empty row]
+26/06/10 17:28:25 INFO LineRecordReader: Found UTF-8 BOM and skipped it
+26/06/10 17:28:25 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 1613 bytes result sent to driver
+26/06/10 17:28:25 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 82 ms on localhost (executor driver) (1/1)
+26/06/10 17:28:25 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+26/06/10 17:28:25 INFO DAGScheduler: ResultStage 1 (csv at NativeMethodAccessorImpl.java:0) finished in 0.120 s
+26/06/10 17:28:25 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+26/06/10 17:28:25 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+26/06/10 17:28:25 INFO DAGScheduler: Job 1 finished: csv at NativeMethodAccessorImpl.java:0, took 0.131623 s
+26/06/10 17:28:25 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/06/10 17:28:25 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/06/10 17:28:25 INFO FileSourceStrategy: Pushed Filters: 
+26/06/10 17:28:25 INFO FileSourceStrategy: Post-Scan Filters: (length(trim(value#152, None)) > 0)
+26/06/10 17:28:25 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 351.0 KiB, free 365.1 MiB)
+26/06/10 17:28:25 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 34.6 KiB, free 365.1 MiB)
+26/06/10 17:28:25 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on localhost:35133 (size: 34.6 KiB, free: 366.2 MiB)
+26/06/10 17:28:25 INFO SparkContext: Created broadcast 4 from csv at NativeMethodAccessorImpl.java:0
+26/06/10 17:28:25 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/06/10 17:28:25 INFO SparkContext: Starting job: csv at NativeMethodAccessorImpl.java:0
+26/06/10 17:28:25 INFO DAGScheduler: Got job 2 (csv at NativeMethodAccessorImpl.java:0) with 1 output partitions
+26/06/10 17:28:25 INFO DAGScheduler: Final stage: ResultStage 2 (csv at NativeMethodAccessorImpl.java:0)
+26/06/10 17:28:25 INFO DAGScheduler: Parents of final stage: List()
+26/06/10 17:28:25 INFO DAGScheduler: Missing parents: List()
+26/06/10 17:28:25 INFO DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[13] at csv at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/06/10 17:28:25 INFO MemoryStore: Block broadcast_5 stored as values in memory (estimated size 13.5 KiB, free 365.1 MiB)
+26/06/10 17:28:25 INFO MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 6.4 KiB, free 365.1 MiB)
+26/06/10 17:28:25 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on localhost:35133 (size: 6.4 KiB, free: 366.2 MiB)
+26/06/10 17:28:25 INFO SparkContext: Created broadcast 5 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:25 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 2 (MapPartitionsRDD[13] at csv at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/06/10 17:28:25 INFO TaskSchedulerImpl: Adding task set 2.0 with 1 tasks resource profile 0
+26/06/10 17:28:25 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 2) (localhost, executor driver, partition 0, ANY, 8233 bytes) 
+26/06/10 17:28:25 INFO Executor: Running task 0.0 in stage 2.0 (TID 2)
+26/06/10 17:28:25 INFO FileScanRDD: Reading File path: hdfs://localhost:9000/resume_matching/raw_data/jobs.csv, range: 0-1817, partition values: [empty row]
+26/06/10 17:28:25 INFO LineRecordReader: Found UTF-8 BOM and skipped it
+26/06/10 17:28:25 INFO Executor: Finished task 0.0 in stage 2.0 (TID 2). 1695 bytes result sent to driver
+26/06/10 17:28:25 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 2) in 12 ms on localhost (executor driver) (1/1)
+26/06/10 17:28:25 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool 
+26/06/10 17:28:25 INFO DAGScheduler: ResultStage 2 (csv at NativeMethodAccessorImpl.java:0) finished in 0.020 s
+26/06/10 17:28:25 INFO DAGScheduler: Job 2 is finished. Cancelling potential speculative or zombie tasks for this job
+26/06/10 17:28:25 INFO TaskSchedulerImpl: Killing all running tasks in stage 2: Stage finished
+26/06/10 17:28:25 INFO DAGScheduler: Job 2 finished: csv at NativeMethodAccessorImpl.java:0, took 0.023978 s
+26/06/10 17:28:25 INFO FileSourceStrategy: Pushed Filters: 
+26/06/10 17:28:25 INFO FileSourceStrategy: Post-Scan Filters: 
+26/06/10 17:28:25 INFO MemoryStore: Block broadcast_6 stored as values in memory (estimated size 351.0 KiB, free 364.7 MiB)
+26/06/10 17:28:25 INFO MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 34.6 KiB, free 364.7 MiB)
+26/06/10 17:28:25 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on localhost:35133 (size: 34.6 KiB, free: 366.1 MiB)
+26/06/10 17:28:25 INFO SparkContext: Created broadcast 6 from csv at NativeMethodAccessorImpl.java:0
+26/06/10 17:28:25 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/06/10 17:28:25 INFO SparkContext: Starting job: csv at NativeMethodAccessorImpl.java:0
+26/06/10 17:28:25 INFO DAGScheduler: Got job 3 (csv at NativeMethodAccessorImpl.java:0) with 1 output partitions
+26/06/10 17:28:25 INFO DAGScheduler: Final stage: ResultStage 3 (csv at NativeMethodAccessorImpl.java:0)
+26/06/10 17:28:25 INFO DAGScheduler: Parents of final stage: List()
+26/06/10 17:28:25 INFO DAGScheduler: Missing parents: List()
+26/06/10 17:28:25 INFO DAGScheduler: Submitting ResultStage 3 (MapPartitionsRDD[19] at csv at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/06/10 17:28:25 INFO MemoryStore: Block broadcast_7 stored as values in memory (estimated size 27.8 KiB, free 364.7 MiB)
+26/06/10 17:28:25 INFO MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 12.8 KiB, free 364.7 MiB)
+26/06/10 17:28:25 INFO BlockManagerInfo: Added broadcast_7_piece0 in memory on localhost:35133 (size: 12.8 KiB, free: 366.1 MiB)
+26/06/10 17:28:25 INFO SparkContext: Created broadcast 7 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:25 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 3 (MapPartitionsRDD[19] at csv at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/06/10 17:28:25 INFO TaskSchedulerImpl: Adding task set 3.0 with 1 tasks resource profile 0
+26/06/10 17:28:25 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 3) (localhost, executor driver, partition 0, ANY, 8233 bytes) 
+26/06/10 17:28:25 INFO Executor: Running task 0.0 in stage 3.0 (TID 3)
+26/06/10 17:28:25 INFO FileScanRDD: Reading File path: hdfs://localhost:9000/resume_matching/raw_data/jobs.csv, range: 0-1817, partition values: [empty row]
+26/06/10 17:28:25 INFO LineRecordReader: Found UTF-8 BOM and skipped it
+26/06/10 17:28:25 INFO Executor: Finished task 0.0 in stage 3.0 (TID 3). 1608 bytes result sent to driver
+26/06/10 17:28:25 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 3) in 24 ms on localhost (executor driver) (1/1)
+26/06/10 17:28:25 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool 
+26/06/10 17:28:25 INFO DAGScheduler: ResultStage 3 (csv at NativeMethodAccessorImpl.java:0) finished in 0.035 s
+26/06/10 17:28:25 INFO DAGScheduler: Job 3 is finished. Cancelling potential speculative or zombie tasks for this job
+26/06/10 17:28:25 INFO TaskSchedulerImpl: Killing all running tasks in stage 3: Stage finished
+26/06/10 17:28:25 INFO DAGScheduler: Job 3 finished: csv at NativeMethodAccessorImpl.java:0, took 0.041975 s
+26/06/10 17:28:26 INFO BlockManagerInfo: Removed broadcast_5_piece0 on localhost:35133 in memory (size: 6.4 KiB, free: 366.1 MiB)
+26/06/10 17:28:26 INFO BlockManagerInfo: Removed broadcast_2_piece0 on localhost:35133 in memory (size: 34.6 KiB, free: 366.2 MiB)
+26/06/10 17:28:26 INFO BlockManagerInfo: Removed broadcast_0_piece0 on localhost:35133 in memory (size: 34.6 KiB, free: 366.2 MiB)
+26/06/10 17:28:26 INFO BlockManagerInfo: Removed broadcast_7_piece0 on localhost:35133 in memory (size: 12.8 KiB, free: 366.2 MiB)
+26/06/10 17:28:26 INFO BlockManagerInfo: Removed broadcast_6_piece0 on localhost:35133 in memory (size: 34.6 KiB, free: 366.2 MiB)
+26/06/10 17:28:26 INFO BlockManagerInfo: Removed broadcast_4_piece0 on localhost:35133 in memory (size: 34.6 KiB, free: 366.3 MiB)
+26/06/10 17:28:26 INFO BlockManagerInfo: Removed broadcast_3_piece0 on localhost:35133 in memory (size: 12.8 KiB, free: 366.3 MiB)
+26/06/10 17:28:26 INFO BlockManagerInfo: Removed broadcast_1_piece0 on localhost:35133 in memory (size: 6.4 KiB, free: 366.3 MiB)
+26/06/10 17:28:26 INFO FileSourceStrategy: Pushed Filters: 
+26/06/10 17:28:26 INFO FileSourceStrategy: Post-Scan Filters: 
+26/06/10 17:28:26 INFO FileSourceStrategy: Pushed Filters: 
+26/06/10 17:28:26 INFO FileSourceStrategy: Post-Scan Filters: 
+26/06/10 17:28:26 INFO CodeGenerator: Code generated in 9.844797 ms
+26/06/10 17:28:26 INFO MemoryStore: Block broadcast_8 stored as values in memory (estimated size 350.9 KiB, free 366.0 MiB)
+26/06/10 17:28:26 INFO MemoryStore: Block broadcast_8_piece0 stored as bytes in memory (estimated size 34.7 KiB, free 365.9 MiB)
+26/06/10 17:28:26 INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on localhost:35133 (size: 34.7 KiB, free: 366.3 MiB)
+26/06/10 17:28:26 INFO SparkContext: Created broadcast 8 from rdd at IDF.scala:90
+26/06/10 17:28:26 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/06/10 17:28:26 INFO DAGScheduler: Registering RDD 24 (rdd at IDF.scala:90) as input to shuffle 0
+26/06/10 17:28:26 INFO DAGScheduler: Got map stage job 4 (rdd at IDF.scala:90) with 1 output partitions
+26/06/10 17:28:26 INFO DAGScheduler: Final stage: ShuffleMapStage 4 (rdd at IDF.scala:90)
+26/06/10 17:28:26 INFO DAGScheduler: Parents of final stage: List()
+26/06/10 17:28:26 INFO CodeGenerator: Code generated in 8.519762 ms
+26/06/10 17:28:26 INFO DAGScheduler: Missing parents: List()
+26/06/10 17:28:26 INFO DAGScheduler: Submitting ShuffleMapStage 4 (MapPartitionsRDD[24] at rdd at IDF.scala:90), which has no missing parents
+26/06/10 17:28:26 INFO MemoryStore: Block broadcast_9 stored as values in memory (estimated size 350.9 KiB, free 365.6 MiB)
+26/06/10 17:28:26 INFO MemoryStore: Block broadcast_9_piece0 stored as bytes in memory (estimated size 34.7 KiB, free 365.5 MiB)
+26/06/10 17:28:26 INFO BlockManagerInfo: Added broadcast_9_piece0 in memory on localhost:35133 (size: 34.7 KiB, free: 366.2 MiB)
+26/06/10 17:28:26 INFO SparkContext: Created broadcast 9 from rdd at IDF.scala:90
+26/06/10 17:28:26 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/06/10 17:28:26 INFO MemoryStore: Block broadcast_10 stored as values in memory (estimated size 31.9 KiB, free 365.5 MiB)
+26/06/10 17:28:26 INFO MemoryStore: Block broadcast_10_piece0 stored as bytes in memory (estimated size 14.8 KiB, free 365.5 MiB)
+26/06/10 17:28:26 INFO BlockManagerInfo: Added broadcast_10_piece0 in memory on localhost:35133 (size: 14.8 KiB, free: 366.2 MiB)
+26/06/10 17:28:26 INFO SparkContext: Created broadcast 10 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:26 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 4 (MapPartitionsRDD[24] at rdd at IDF.scala:90) (first 15 tasks are for partitions Vector(0))
+26/06/10 17:28:26 INFO TaskSchedulerImpl: Adding task set 4.0 with 1 tasks resource profile 0
+26/06/10 17:28:26 INFO DAGScheduler: Registering RDD 29 (rdd at IDF.scala:90) as input to shuffle 1
+26/06/10 17:28:26 INFO DAGScheduler: Got map stage job 5 (rdd at IDF.scala:90) with 1 output partitions
+26/06/10 17:28:26 INFO DAGScheduler: Final stage: ShuffleMapStage 5 (rdd at IDF.scala:90)
+26/06/10 17:28:26 INFO DAGScheduler: Parents of final stage: List()
+26/06/10 17:28:26 INFO TaskSetManager: Starting task 0.0 in stage 4.0 (TID 4) (localhost, executor driver, partition 0, ANY, 8225 bytes) 
+26/06/10 17:28:26 INFO DAGScheduler: Missing parents: List()
+26/06/10 17:28:26 INFO Executor: Running task 0.0 in stage 4.0 (TID 4)
+26/06/10 17:28:26 INFO DAGScheduler: Submitting ShuffleMapStage 5 (MapPartitionsRDD[29] at rdd at IDF.scala:90), which has no missing parents
+26/06/10 17:28:26 INFO MemoryStore: Block broadcast_11 stored as values in memory (estimated size 31.3 KiB, free 365.5 MiB)
+26/06/10 17:28:26 INFO MemoryStore: Block broadcast_11_piece0 stored as bytes in memory (estimated size 14.6 KiB, free 365.5 MiB)
+26/06/10 17:28:26 INFO BlockManagerInfo: Added broadcast_11_piece0 in memory on localhost:35133 (size: 14.6 KiB, free: 366.2 MiB)
+26/06/10 17:28:26 INFO SparkContext: Created broadcast 11 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:26 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 5 (MapPartitionsRDD[29] at rdd at IDF.scala:90) (first 15 tasks are for partitions Vector(0))
+26/06/10 17:28:26 INFO TaskSchedulerImpl: Adding task set 5.0 with 1 tasks resource profile 0
+26/06/10 17:28:26 INFO TaskSetManager: Starting task 0.0 in stage 5.0 (TID 5) (localhost, executor driver, partition 0, ANY, 8222 bytes) 
+26/06/10 17:28:26 INFO Executor: Running task 0.0 in stage 5.0 (TID 5)
+26/06/10 17:28:26 INFO CodeGenerator: Code generated in 7.038136 ms
+26/06/10 17:28:26 INFO CodeGenerator: Code generated in 16.82909 ms
+26/06/10 17:28:26 INFO CodeGenerator: Code generated in 11.488429 ms
+26/06/10 17:28:26 INFO CodeGenerator: Code generated in 6.851439 ms
+26/06/10 17:28:26 INFO FileScanRDD: Reading File path: hdfs://localhost:9000/resume_matching/raw_data/resumes.csv, range: 0-3322, partition values: [empty row]
+26/06/10 17:28:26 INFO FileScanRDD: Reading File path: hdfs://localhost:9000/resume_matching/raw_data/jobs.csv, range: 0-1817, partition values: [empty row]
+26/06/10 17:28:26 INFO CodeGenerator: Code generated in 12.303514 ms
+26/06/10 17:28:26 INFO CodeGenerator: Code generated in 14.223613 ms
+26/06/10 17:28:26 INFO LineRecordReader: Found UTF-8 BOM and skipped it
+26/06/10 17:28:26 INFO LineRecordReader: Found UTF-8 BOM and skipped it
+26/06/10 17:28:26 INFO CodeGenerator: Code generated in 6.643192 ms
+26/06/10 17:28:26 INFO CodeGenerator: Code generated in 6.726503 ms
+26/06/10 17:28:26 INFO CodeGenerator: Code generated in 8.893791 ms
+26/06/10 17:28:26 INFO CodeGenerator: Code generated in 13.819603 ms
+26/06/10 17:28:26 INFO CodeGenerator: Code generated in 11.442057 ms
+26/06/10 17:28:26 INFO CodeGenerator: Code generated in 5.935616 ms
+26/06/10 17:28:26 INFO CodeGenerator: Code generated in 8.631015 ms
+26/06/10 17:28:26 INFO Executor: Finished task 0.0 in stage 4.0 (TID 4). 2374 bytes result sent to driver
+26/06/10 17:28:26 INFO Executor: Finished task 0.0 in stage 5.0 (TID 5). 2374 bytes result sent to driver
+26/06/10 17:28:26 INFO TaskSetManager: Finished task 0.0 in stage 4.0 (TID 4) in 245 ms on localhost (executor driver) (1/1)
+26/06/10 17:28:26 INFO DAGScheduler: ShuffleMapStage 4 (rdd at IDF.scala:90) finished in 0.285 s
+26/06/10 17:28:26 INFO DAGScheduler: looking for newly runnable stages
+26/06/10 17:28:26 INFO DAGScheduler: running: Set(ShuffleMapStage 5)
+26/06/10 17:28:26 INFO DAGScheduler: waiting: Set()
+26/06/10 17:28:26 INFO DAGScheduler: failed: Set()
+26/06/10 17:28:26 INFO TaskSchedulerImpl: Removed TaskSet 4.0, whose tasks have all completed, from pool 
+26/06/10 17:28:26 INFO TaskSetManager: Finished task 0.0 in stage 5.0 (TID 5) in 224 ms on localhost (executor driver) (1/1)
+26/06/10 17:28:26 INFO TaskSchedulerImpl: Removed TaskSet 5.0, whose tasks have all completed, from pool 
+26/06/10 17:28:26 INFO DAGScheduler: ShuffleMapStage 5 (rdd at IDF.scala:90) finished in 0.249 s
+26/06/10 17:28:26 INFO DAGScheduler: looking for newly runnable stages
+26/06/10 17:28:26 INFO DAGScheduler: running: Set()
+26/06/10 17:28:26 INFO DAGScheduler: waiting: Set()
+26/06/10 17:28:26 INFO DAGScheduler: failed: Set()
+26/06/10 17:28:26 INFO ShufflePartitionsUtil: For shuffle(0), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/06/10 17:28:26 INFO ShufflePartitionsUtil: For shuffle(1), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/06/10 17:28:26 INFO CodeGenerator: Code generated in 6.025634 ms
+26/06/10 17:28:26 INFO CodeGenerator: Code generated in 5.809952 ms
+26/06/10 17:28:26 INFO SparkContext: Starting job: treeAggregate at IDF.scala:55
+26/06/10 17:28:26 INFO DAGScheduler: Got job 6 (treeAggregate at IDF.scala:55) with 2 output partitions
+26/06/10 17:28:26 INFO DAGScheduler: Final stage: ResultStage 8 (treeAggregate at IDF.scala:55)
+26/06/10 17:28:26 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 6, ShuffleMapStage 7)
+26/06/10 17:28:26 INFO DAGScheduler: Missing parents: List()
+26/06/10 17:28:26 INFO DAGScheduler: Submitting ResultStage 8 (MapPartitionsRDD[41] at treeAggregate at IDF.scala:55), which has no missing parents
+26/06/10 17:28:27 INFO MemoryStore: Block broadcast_12 stored as values in memory (estimated size 73.6 KiB, free 365.4 MiB)
+26/06/10 17:28:27 INFO MemoryStore: Block broadcast_12_piece0 stored as bytes in memory (estimated size 32.0 KiB, free 365.4 MiB)
+26/06/10 17:28:27 INFO BlockManagerInfo: Added broadcast_12_piece0 in memory on localhost:35133 (size: 32.0 KiB, free: 366.2 MiB)
+26/06/10 17:28:27 INFO SparkContext: Created broadcast 12 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:27 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 8 (MapPartitionsRDD[41] at treeAggregate at IDF.scala:55) (first 15 tasks are for partitions Vector(0, 1))
+26/06/10 17:28:27 INFO TaskSchedulerImpl: Adding task set 8.0 with 2 tasks resource profile 0
+26/06/10 17:28:27 INFO TaskSetManager: Starting task 0.0 in stage 8.0 (TID 6) (localhost, executor driver, partition 0, NODE_LOCAL, 7724 bytes) 
+26/06/10 17:28:27 INFO TaskSetManager: Starting task 1.0 in stage 8.0 (TID 7) (localhost, executor driver, partition 1, NODE_LOCAL, 7724 bytes) 
+26/06/10 17:28:27 INFO Executor: Running task 0.0 in stage 8.0 (TID 6)
+26/06/10 17:28:27 INFO Executor: Running task 1.0 in stage 8.0 (TID 7)
+26/06/10 17:28:27 INFO ShuffleBlockFetcherIterator: Getting 1 (3.3 KiB) non-empty blocks including 1 (3.3 KiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/06/10 17:28:27 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 9 ms
+26/06/10 17:28:27 INFO ShuffleBlockFetcherIterator: Getting 1 (1835.0 B) non-empty blocks including 1 (1835.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/06/10 17:28:27 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 12 ms
+26/06/10 17:28:27 INFO CodeGenerator: Code generated in 6.774778 ms
+26/06/10 17:28:27 INFO CodeGenerator: Code generated in 11.925932 ms
+26/06/10 17:28:27 INFO CodeGenerator: Code generated in 10.513191 ms
+26/06/10 17:28:27 INFO CodeGenerator: Code generated in 5.016562 ms
+26/06/10 17:28:27 INFO CodeGenerator: Code generated in 19.329045 ms
+26/06/10 17:28:27 INFO CodeGenerator: Code generated in 9.311271 ms
+26/06/10 17:28:27 INFO CodeGenerator: Code generated in 19.062037 ms
+26/06/10 17:28:27 INFO CodeGenerator: Code generated in 20.428509 ms
+26/06/10 17:28:27 INFO CodeGenerator: Code generated in 5.254273 ms
+26/06/10 17:28:27 INFO CodeGenerator: Code generated in 10.596668 ms
+26/06/10 17:28:27 INFO CodeGenerator: Code generated in 6.237206 ms
+26/06/10 17:28:27 INFO BlockManagerInfo: Removed broadcast_11_piece0 on localhost:35133 in memory (size: 14.6 KiB, free: 366.2 MiB)
+26/06/10 17:28:27 INFO BlockManagerInfo: Removed broadcast_10_piece0 on localhost:35133 in memory (size: 14.8 KiB, free: 366.2 MiB)
+26/06/10 17:28:28 INFO Executor: Finished task 1.0 in stage 8.0 (TID 7). 15122 bytes result sent to driver
+26/06/10 17:28:28 INFO Executor: Finished task 0.0 in stage 8.0 (TID 6). 15122 bytes result sent to driver
+26/06/10 17:28:28 INFO TaskSetManager: Finished task 1.0 in stage 8.0 (TID 7) in 1482 ms on localhost (executor driver) (1/2)
+26/06/10 17:28:28 INFO TaskSetManager: Finished task 0.0 in stage 8.0 (TID 6) in 1485 ms on localhost (executor driver) (2/2)
+26/06/10 17:28:28 INFO TaskSchedulerImpl: Removed TaskSet 8.0, whose tasks have all completed, from pool 
+26/06/10 17:28:28 INFO DAGScheduler: ResultStage 8 (treeAggregate at IDF.scala:55) finished in 1.536 s
+26/06/10 17:28:28 INFO DAGScheduler: Job 6 is finished. Cancelling potential speculative or zombie tasks for this job
+26/06/10 17:28:28 INFO TaskSchedulerImpl: Killing all running tasks in stage 8: Stage finished
+26/06/10 17:28:28 INFO DAGScheduler: Job 6 finished: treeAggregate at IDF.scala:55, took 1.548075 s
+26/06/10 17:28:28 INFO FileSourceStrategy: Pushed Filters: 
+26/06/10 17:28:28 INFO FileSourceStrategy: Post-Scan Filters: 
+26/06/10 17:28:28 INFO FileSourceStrategy: Pushed Filters: 
+26/06/10 17:28:28 INFO FileSourceStrategy: Post-Scan Filters: 
+26/06/10 17:28:28 INFO MemoryStore: Block broadcast_13 stored as values in memory (estimated size 350.9 KiB, free 365.1 MiB)
+26/06/10 17:28:28 INFO MemoryStore: Block broadcast_13_piece0 stored as bytes in memory (estimated size 34.7 KiB, free 365.1 MiB)
+26/06/10 17:28:28 INFO BlockManagerInfo: Added broadcast_13_piece0 in memory on localhost:35133 (size: 34.7 KiB, free: 366.2 MiB)
+26/06/10 17:28:28 INFO SparkContext: Created broadcast 13 from rdd at Word2Vec.scala:172
+26/06/10 17:28:28 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/06/10 17:28:28 INFO DAGScheduler: Registering RDD 46 (rdd at Word2Vec.scala:172) as input to shuffle 2
+26/06/10 17:28:28 INFO DAGScheduler: Got map stage job 7 (rdd at Word2Vec.scala:172) with 1 output partitions
+26/06/10 17:28:28 INFO MemoryStore: Block broadcast_14 stored as values in memory (estimated size 350.9 KiB, free 364.7 MiB)
+26/06/10 17:28:28 INFO DAGScheduler: Final stage: ShuffleMapStage 9 (rdd at Word2Vec.scala:172)
+26/06/10 17:28:28 INFO DAGScheduler: Parents of final stage: List()
+26/06/10 17:28:28 INFO DAGScheduler: Missing parents: List()
+26/06/10 17:28:28 INFO DAGScheduler: Submitting ShuffleMapStage 9 (MapPartitionsRDD[46] at rdd at Word2Vec.scala:172), which has no missing parents
+26/06/10 17:28:28 INFO MemoryStore: Block broadcast_14_piece0 stored as bytes in memory (estimated size 34.7 KiB, free 364.7 MiB)
+26/06/10 17:28:28 INFO BlockManagerInfo: Added broadcast_14_piece0 in memory on localhost:35133 (size: 34.7 KiB, free: 366.1 MiB)
+26/06/10 17:28:28 INFO SparkContext: Created broadcast 14 from rdd at Word2Vec.scala:172
+26/06/10 17:28:28 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/06/10 17:28:28 INFO MemoryStore: Block broadcast_15 stored as values in memory (estimated size 31.9 KiB, free 364.7 MiB)
+26/06/10 17:28:28 INFO MemoryStore: Block broadcast_15_piece0 stored as bytes in memory (estimated size 14.8 KiB, free 364.6 MiB)
+26/06/10 17:28:28 INFO BlockManagerInfo: Added broadcast_15_piece0 in memory on localhost:35133 (size: 14.8 KiB, free: 366.1 MiB)
+26/06/10 17:28:28 INFO SparkContext: Created broadcast 15 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:28 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 9 (MapPartitionsRDD[46] at rdd at Word2Vec.scala:172) (first 15 tasks are for partitions Vector(0))
+26/06/10 17:28:28 INFO TaskSchedulerImpl: Adding task set 9.0 with 1 tasks resource profile 0
+26/06/10 17:28:28 INFO TaskSetManager: Starting task 0.0 in stage 9.0 (TID 8) (localhost, executor driver, partition 0, ANY, 8225 bytes) 
+26/06/10 17:28:28 INFO Executor: Running task 0.0 in stage 9.0 (TID 8)
+26/06/10 17:28:28 INFO DAGScheduler: Registering RDD 51 (rdd at Word2Vec.scala:172) as input to shuffle 3
+26/06/10 17:28:28 INFO DAGScheduler: Got map stage job 8 (rdd at Word2Vec.scala:172) with 1 output partitions
+26/06/10 17:28:28 INFO DAGScheduler: Final stage: ShuffleMapStage 10 (rdd at Word2Vec.scala:172)
+26/06/10 17:28:28 INFO DAGScheduler: Parents of final stage: List()
+26/06/10 17:28:28 INFO DAGScheduler: Missing parents: List()
+26/06/10 17:28:28 INFO DAGScheduler: Submitting ShuffleMapStage 10 (MapPartitionsRDD[51] at rdd at Word2Vec.scala:172), which has no missing parents
+26/06/10 17:28:28 INFO FileScanRDD: Reading File path: hdfs://localhost:9000/resume_matching/raw_data/resumes.csv, range: 0-3322, partition values: [empty row]
+26/06/10 17:28:28 INFO MemoryStore: Block broadcast_16 stored as values in memory (estimated size 31.3 KiB, free 364.6 MiB)
+26/06/10 17:28:28 INFO MemoryStore: Block broadcast_16_piece0 stored as bytes in memory (estimated size 14.6 KiB, free 364.5 MiB)
+26/06/10 17:28:28 INFO BlockManagerInfo: Added broadcast_16_piece0 in memory on localhost:35133 (size: 14.6 KiB, free: 366.1 MiB)
+26/06/10 17:28:28 INFO SparkContext: Created broadcast 16 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:28 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 10 (MapPartitionsRDD[51] at rdd at Word2Vec.scala:172) (first 15 tasks are for partitions Vector(0))
+26/06/10 17:28:28 INFO TaskSchedulerImpl: Adding task set 10.0 with 1 tasks resource profile 0
+26/06/10 17:28:28 INFO LineRecordReader: Found UTF-8 BOM and skipped it
+26/06/10 17:28:28 INFO TaskSetManager: Starting task 0.0 in stage 10.0 (TID 9) (localhost, executor driver, partition 0, ANY, 8222 bytes) 
+26/06/10 17:28:28 INFO Executor: Running task 0.0 in stage 10.0 (TID 9)
+26/06/10 17:28:28 INFO FileScanRDD: Reading File path: hdfs://localhost:9000/resume_matching/raw_data/jobs.csv, range: 0-1817, partition values: [empty row]
+26/06/10 17:28:28 INFO LineRecordReader: Found UTF-8 BOM and skipped it
+26/06/10 17:28:28 INFO Executor: Finished task 0.0 in stage 10.0 (TID 9). 2331 bytes result sent to driver
+26/06/10 17:28:28 INFO Executor: Finished task 0.0 in stage 9.0 (TID 8). 2331 bytes result sent to driver
+26/06/10 17:28:28 INFO TaskSetManager: Finished task 0.0 in stage 10.0 (TID 9) in 28 ms on localhost (executor driver) (1/1)
+26/06/10 17:28:28 INFO TaskSchedulerImpl: Removed TaskSet 10.0, whose tasks have all completed, from pool 
+26/06/10 17:28:28 INFO TaskSetManager: Finished task 0.0 in stage 9.0 (TID 8) in 53 ms on localhost (executor driver) (1/1)
+26/06/10 17:28:28 INFO DAGScheduler: ShuffleMapStage 10 (rdd at Word2Vec.scala:172) finished in 0.050 s
+26/06/10 17:28:28 INFO TaskSchedulerImpl: Removed TaskSet 9.0, whose tasks have all completed, from pool 
+26/06/10 17:28:28 INFO DAGScheduler: looking for newly runnable stages
+26/06/10 17:28:28 INFO DAGScheduler: running: Set(ShuffleMapStage 9)
+26/06/10 17:28:28 INFO DAGScheduler: waiting: Set()
+26/06/10 17:28:28 INFO DAGScheduler: failed: Set()
+26/06/10 17:28:28 INFO DAGScheduler: ShuffleMapStage 9 (rdd at Word2Vec.scala:172) finished in 0.079 s
+26/06/10 17:28:28 INFO DAGScheduler: looking for newly runnable stages
+26/06/10 17:28:28 INFO DAGScheduler: running: Set()
+26/06/10 17:28:28 INFO DAGScheduler: waiting: Set()
+26/06/10 17:28:28 INFO DAGScheduler: failed: Set()
+26/06/10 17:28:28 INFO ShufflePartitionsUtil: For shuffle(2), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/06/10 17:28:28 INFO ShufflePartitionsUtil: For shuffle(3), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/06/10 17:28:28 INFO SparkContext: Starting job: collect at Word2Vec.scala:192
+26/06/10 17:28:28 INFO DAGScheduler: Registering RDD 64 (map at Word2Vec.scala:189) as input to shuffle 4
+26/06/10 17:28:28 INFO DAGScheduler: Got job 9 (collect at Word2Vec.scala:192) with 2 output partitions
+26/06/10 17:28:28 INFO DAGScheduler: Final stage: ResultStage 14 (collect at Word2Vec.scala:192)
+26/06/10 17:28:28 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 13)
+26/06/10 17:28:28 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 13)
+26/06/10 17:28:28 INFO DAGScheduler: Submitting ShuffleMapStage 13 (MapPartitionsRDD[64] at map at Word2Vec.scala:189), which has no missing parents
+26/06/10 17:28:28 INFO MemoryStore: Block broadcast_17 stored as values in memory (estimated size 69.2 KiB, free 364.5 MiB)
+26/06/10 17:28:28 INFO MemoryStore: Block broadcast_17_piece0 stored as bytes in memory (estimated size 30.3 KiB, free 364.5 MiB)
+26/06/10 17:28:28 INFO BlockManagerInfo: Added broadcast_17_piece0 in memory on localhost:35133 (size: 30.3 KiB, free: 366.1 MiB)
+26/06/10 17:28:28 INFO SparkContext: Created broadcast 17 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:28 INFO DAGScheduler: Submitting 2 missing tasks from ShuffleMapStage 13 (MapPartitionsRDD[64] at map at Word2Vec.scala:189) (first 15 tasks are for partitions Vector(0, 1))
+26/06/10 17:28:28 INFO TaskSchedulerImpl: Adding task set 13.0 with 2 tasks resource profile 0
+26/06/10 17:28:28 INFO TaskSetManager: Starting task 0.0 in stage 13.0 (TID 10) (localhost, executor driver, partition 0, NODE_LOCAL, 7713 bytes) 
+26/06/10 17:28:28 INFO TaskSetManager: Starting task 1.0 in stage 13.0 (TID 11) (localhost, executor driver, partition 1, NODE_LOCAL, 7713 bytes) 
+26/06/10 17:28:28 INFO Executor: Running task 1.0 in stage 13.0 (TID 11)
+26/06/10 17:28:28 INFO Executor: Running task 0.0 in stage 13.0 (TID 10)
+26/06/10 17:28:28 INFO ShuffleBlockFetcherIterator: Getting 1 (3.3 KiB) non-empty blocks including 1 (3.3 KiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/06/10 17:28:28 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 2 ms
+26/06/10 17:28:28 INFO ShuffleBlockFetcherIterator: Getting 1 (1835.0 B) non-empty blocks including 1 (1835.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/06/10 17:28:28 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 7 ms
+26/06/10 17:28:28 INFO CodeGenerator: Code generated in 7.895228 ms
+26/06/10 17:28:28 INFO CodeGenerator: Code generated in 6.25834 ms
+26/06/10 17:28:29 INFO CodeGenerator: Code generated in 7.429032 ms
+26/06/10 17:28:29 INFO Executor: Finished task 1.0 in stage 13.0 (TID 11). 6873 bytes result sent to driver
+26/06/10 17:28:29 INFO TaskSetManager: Finished task 1.0 in stage 13.0 (TID 11) in 121 ms on localhost (executor driver) (1/2)
+26/06/10 17:28:29 INFO Executor: Finished task 0.0 in stage 13.0 (TID 10). 6830 bytes result sent to driver
+26/06/10 17:28:29 INFO TaskSetManager: Finished task 0.0 in stage 13.0 (TID 10) in 131 ms on localhost (executor driver) (2/2)
+26/06/10 17:28:29 INFO TaskSchedulerImpl: Removed TaskSet 13.0, whose tasks have all completed, from pool 
+26/06/10 17:28:29 INFO DAGScheduler: ShuffleMapStage 13 (map at Word2Vec.scala:189) finished in 0.149 s
+26/06/10 17:28:29 INFO DAGScheduler: looking for newly runnable stages
+26/06/10 17:28:29 INFO DAGScheduler: running: Set()
+26/06/10 17:28:29 INFO DAGScheduler: waiting: Set(ResultStage 14)
+26/06/10 17:28:29 INFO DAGScheduler: failed: Set()
+26/06/10 17:28:29 INFO DAGScheduler: Submitting ResultStage 14 (MapPartitionsRDD[67] at map at Word2Vec.scala:192), which has no missing parents
+26/06/10 17:28:29 INFO MemoryStore: Block broadcast_18 stored as values in memory (estimated size 6.9 KiB, free 364.5 MiB)
+26/06/10 17:28:29 INFO MemoryStore: Block broadcast_18_piece0 stored as bytes in memory (estimated size 3.8 KiB, free 364.5 MiB)
+26/06/10 17:28:29 INFO BlockManagerInfo: Added broadcast_18_piece0 in memory on localhost:35133 (size: 3.8 KiB, free: 366.1 MiB)
+26/06/10 17:28:29 INFO SparkContext: Created broadcast 18 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:29 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 14 (MapPartitionsRDD[67] at map at Word2Vec.scala:192) (first 15 tasks are for partitions Vector(0, 1))
+26/06/10 17:28:29 INFO TaskSchedulerImpl: Adding task set 14.0 with 2 tasks resource profile 0
+26/06/10 17:28:29 INFO TaskSetManager: Starting task 0.0 in stage 14.0 (TID 12) (localhost, executor driver, partition 0, NODE_LOCAL, 7433 bytes) 
+26/06/10 17:28:29 INFO TaskSetManager: Starting task 1.0 in stage 14.0 (TID 13) (localhost, executor driver, partition 1, NODE_LOCAL, 7433 bytes) 
+26/06/10 17:28:29 INFO Executor: Running task 0.0 in stage 14.0 (TID 12)
+26/06/10 17:28:29 INFO Executor: Running task 1.0 in stage 14.0 (TID 13)
+26/06/10 17:28:29 INFO ShuffleBlockFetcherIterator: Getting 2 (1644.0 B) non-empty blocks including 2 (1644.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/06/10 17:28:29 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/06/10 17:28:29 INFO ShuffleBlockFetcherIterator: Getting 2 (1358.0 B) non-empty blocks including 2 (1358.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/06/10 17:28:29 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/06/10 17:28:29 INFO Executor: Finished task 1.0 in stage 14.0 (TID 13). 22474 bytes result sent to driver
+26/06/10 17:28:29 INFO TaskSetManager: Finished task 1.0 in stage 14.0 (TID 13) in 26 ms on localhost (executor driver) (1/2)
+26/06/10 17:28:29 INFO Executor: Finished task 0.0 in stage 14.0 (TID 12). 24148 bytes result sent to driver
+26/06/10 17:28:29 INFO TaskSetManager: Finished task 0.0 in stage 14.0 (TID 12) in 29 ms on localhost (executor driver) (2/2)
+26/06/10 17:28:29 INFO TaskSchedulerImpl: Removed TaskSet 14.0, whose tasks have all completed, from pool 
+26/06/10 17:28:29 INFO DAGScheduler: ResultStage 14 (collect at Word2Vec.scala:192) finished in 0.036 s
+26/06/10 17:28:29 INFO DAGScheduler: Job 9 is finished. Cancelling potential speculative or zombie tasks for this job
+26/06/10 17:28:29 INFO TaskSchedulerImpl: Killing all running tasks in stage 14: Stage finished
+26/06/10 17:28:29 INFO DAGScheduler: Job 9 finished: collect at Word2Vec.scala:192, took 0.318203 s
+26/06/10 17:28:29 INFO Word2Vec: vocabSize = 110, trainWordsCount = 119
+26/06/10 17:28:29 INFO MemoryStore: Block broadcast_19 stored as values in memory (estimated size 3.9 KiB, free 364.5 MiB)
+26/06/10 17:28:29 INFO MemoryStore: Block broadcast_19_piece0 stored as bytes in memory (estimated size 4.0 KiB, free 364.5 MiB)
+26/06/10 17:28:29 INFO BlockManagerInfo: Added broadcast_19_piece0 in memory on localhost:35133 (size: 4.0 KiB, free: 366.1 MiB)
+26/06/10 17:28:29 INFO SparkContext: Created broadcast 19 from broadcast at Word2Vec.scala:319
+26/06/10 17:28:29 INFO MemoryStore: Block broadcast_20 stored as values in memory (estimated size 50.1 KiB, free 364.4 MiB)
+26/06/10 17:28:29 INFO MemoryStore: Block broadcast_20_piece0 stored as bytes in memory (estimated size 5.5 KiB, free 364.4 MiB)
+26/06/10 17:28:29 INFO BlockManagerInfo: Added broadcast_20_piece0 in memory on localhost:35133 (size: 5.5 KiB, free: 366.1 MiB)
+26/06/10 17:28:29 INFO SparkContext: Created broadcast 20 from broadcast at Word2Vec.scala:320
+26/06/10 17:28:29 INFO MemoryStore: Block broadcast_21 stored as values in memory (estimated size 12.9 KiB, free 364.4 MiB)
+26/06/10 17:28:29 INFO MemoryStore: Block broadcast_21_piece0 stored as bytes in memory (estimated size 2.7 KiB, free 364.4 MiB)
+26/06/10 17:28:29 INFO BlockManagerInfo: Added broadcast_21_piece0 in memory on localhost:35133 (size: 2.7 KiB, free: 366.1 MiB)
+26/06/10 17:28:29 INFO SparkContext: Created broadcast 21 from broadcast at Word2Vec.scala:321
+26/06/10 17:28:29 INFO MemoryStore: Block broadcast_22 stored as values in memory (estimated size 21.5 KiB, free 364.4 MiB)
+26/06/10 17:28:29 INFO MemoryStore: Block broadcast_22_piece0 stored as bytes in memory (estimated size 21.6 KiB, free 364.4 MiB)
+26/06/10 17:28:29 INFO BlockManagerInfo: Added broadcast_22_piece0 in memory on localhost:35133 (size: 21.6 KiB, free: 366.0 MiB)
+26/06/10 17:28:29 INFO SparkContext: Created broadcast 22 from broadcast at Word2Vec.scala:364
+26/06/10 17:28:29 INFO MemoryStore: Block broadcast_23 stored as values in memory (estimated size 21.5 KiB, free 364.4 MiB)
+26/06/10 17:28:29 INFO MemoryStore: Block broadcast_23_piece0 stored as bytes in memory (estimated size 167.0 B, free 364.4 MiB)
+26/06/10 17:28:29 INFO BlockManagerInfo: Added broadcast_23_piece0 in memory on localhost:35133 (size: 167.0 B, free: 366.0 MiB)
+26/06/10 17:28:29 INFO SparkContext: Created broadcast 23 from broadcast at Word2Vec.scala:365
+26/06/10 17:28:29 INFO BlockManagerInfo: Removed broadcast_18_piece0 on localhost:35133 in memory (size: 3.8 KiB, free: 366.0 MiB)
+26/06/10 17:28:29 INFO BlockManagerInfo: Removed broadcast_15_piece0 on localhost:35133 in memory (size: 14.8 KiB, free: 366.1 MiB)
+26/06/10 17:28:29 INFO SparkContext: Starting job: collect at Word2Vec.scala:454
+26/06/10 17:28:29 INFO DAGScheduler: Registering RDD 69 (repartition at Word2Vec.scala:348) as input to shuffle 5
+26/06/10 17:28:29 INFO DAGScheduler: Registering RDD 74 (mapPartitions at Word2Vec.scala:447) as input to shuffle 6
+26/06/10 17:28:29 INFO DAGScheduler: Got job 10 (collect at Word2Vec.scala:454) with 1 output partitions
+26/06/10 17:28:29 INFO DAGScheduler: Final stage: ResultStage 19 (collect at Word2Vec.scala:454)
+26/06/10 17:28:29 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 18)
+26/06/10 17:28:29 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 18)
+26/06/10 17:28:29 INFO BlockManagerInfo: Removed broadcast_17_piece0 on localhost:35133 in memory (size: 30.3 KiB, free: 366.1 MiB)
+26/06/10 17:28:29 INFO DAGScheduler: Submitting ShuffleMapStage 17 (MapPartitionsRDD[69] at repartition at Word2Vec.scala:348), which has no missing parents
+26/06/10 17:28:29 INFO MemoryStore: Block broadcast_24 stored as values in memory (estimated size 69.0 KiB, free 364.4 MiB)
+26/06/10 17:28:29 INFO MemoryStore: Block broadcast_24_piece0 stored as bytes in memory (estimated size 30.1 KiB, free 364.4 MiB)
+26/06/10 17:28:29 INFO BlockManagerInfo: Added broadcast_24_piece0 in memory on localhost:35133 (size: 30.1 KiB, free: 366.1 MiB)
+26/06/10 17:28:29 INFO SparkContext: Created broadcast 24 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:29 INFO DAGScheduler: Submitting 2 missing tasks from ShuffleMapStage 17 (MapPartitionsRDD[69] at repartition at Word2Vec.scala:348) (first 15 tasks are for partitions Vector(0, 1))
+26/06/10 17:28:29 INFO TaskSchedulerImpl: Adding task set 17.0 with 2 tasks resource profile 0
+26/06/10 17:28:29 INFO TaskSetManager: Starting task 0.0 in stage 17.0 (TID 14) (localhost, executor driver, partition 0, NODE_LOCAL, 7713 bytes) 
+26/06/10 17:28:29 INFO TaskSetManager: Starting task 1.0 in stage 17.0 (TID 15) (localhost, executor driver, partition 1, NODE_LOCAL, 7713 bytes) 
+26/06/10 17:28:29 INFO BlockManagerInfo: Removed broadcast_16_piece0 on localhost:35133 in memory (size: 14.6 KiB, free: 366.1 MiB)
+26/06/10 17:28:29 INFO Executor: Running task 0.0 in stage 17.0 (TID 14)
+26/06/10 17:28:29 INFO Executor: Running task 1.0 in stage 17.0 (TID 15)
+26/06/10 17:28:29 INFO ShuffleBlockFetcherIterator: Getting 1 (3.3 KiB) non-empty blocks including 1 (3.3 KiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/06/10 17:28:29 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/06/10 17:28:29 INFO ShuffleBlockFetcherIterator: Getting 1 (1835.0 B) non-empty blocks including 1 (1835.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/06/10 17:28:29 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/06/10 17:28:29 INFO Executor: Finished task 0.0 in stage 17.0 (TID 14). 6743 bytes result sent to driver
+26/06/10 17:28:29 INFO TaskSetManager: Finished task 0.0 in stage 17.0 (TID 14) in 30 ms on localhost (executor driver) (1/2)
+26/06/10 17:28:29 INFO Executor: Finished task 1.0 in stage 17.0 (TID 15). 6743 bytes result sent to driver
+26/06/10 17:28:29 INFO TaskSetManager: Finished task 1.0 in stage 17.0 (TID 15) in 34 ms on localhost (executor driver) (2/2)
+26/06/10 17:28:29 INFO TaskSchedulerImpl: Removed TaskSet 17.0, whose tasks have all completed, from pool 
+26/06/10 17:28:29 INFO DAGScheduler: ShuffleMapStage 17 (repartition at Word2Vec.scala:348) finished in 0.048 s
+26/06/10 17:28:29 INFO DAGScheduler: looking for newly runnable stages
+26/06/10 17:28:29 INFO DAGScheduler: running: Set()
+26/06/10 17:28:29 INFO DAGScheduler: waiting: Set(ResultStage 19, ShuffleMapStage 18)
+26/06/10 17:28:29 INFO DAGScheduler: failed: Set()
+26/06/10 17:28:29 INFO DAGScheduler: Submitting ShuffleMapStage 18 (MapPartitionsRDD[74] at mapPartitions at Word2Vec.scala:447), which has no missing parents
+26/06/10 17:28:29 INFO MemoryStore: Block broadcast_25 stored as values in memory (estimated size 8.2 KiB, free 364.4 MiB)
+26/06/10 17:28:29 INFO MemoryStore: Block broadcast_25_piece0 stored as bytes in memory (estimated size 4.4 KiB, free 364.4 MiB)
+26/06/10 17:28:29 INFO BlockManagerInfo: Added broadcast_25_piece0 in memory on localhost:35133 (size: 4.4 KiB, free: 366.1 MiB)
+26/06/10 17:28:29 INFO SparkContext: Created broadcast 25 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:29 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 18 (MapPartitionsRDD[74] at mapPartitions at Word2Vec.scala:447) (first 15 tasks are for partitions Vector(0))
+26/06/10 17:28:29 INFO TaskSchedulerImpl: Adding task set 18.0 with 1 tasks resource profile 0
+26/06/10 17:28:29 INFO TaskSetManager: Starting task 0.0 in stage 18.0 (TID 16) (localhost, executor driver, partition 0, NODE_LOCAL, 7698 bytes) 
+26/06/10 17:28:29 INFO Executor: Running task 0.0 in stage 18.0 (TID 16)
+26/06/10 17:28:29 INFO ShuffleBlockFetcherIterator: Getting 2 (696.0 B) non-empty blocks including 2 (696.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/06/10 17:28:29 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/06/10 17:28:29 INFO MemoryStore: Block rdd_72_0 stored as values in memory (estimated size 1184.0 B, free 364.4 MiB)
+26/06/10 17:28:29 INFO BlockManagerInfo: Added rdd_72_0 in memory on localhost:35133 (size: 1184.0 B, free: 366.1 MiB)
+26/06/10 17:28:29 WARN InstanceBuilder: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+26/06/10 17:28:29 INFO Executor: Finished task 0.0 in stage 18.0 (TID 16). 1901 bytes result sent to driver
+26/06/10 17:28:29 INFO TaskSetManager: Finished task 0.0 in stage 18.0 (TID 16) in 69 ms on localhost (executor driver) (1/1)
+26/06/10 17:28:29 INFO TaskSchedulerImpl: Removed TaskSet 18.0, whose tasks have all completed, from pool 
+26/06/10 17:28:29 INFO DAGScheduler: ShuffleMapStage 18 (mapPartitions at Word2Vec.scala:447) finished in 0.079 s
+26/06/10 17:28:29 INFO DAGScheduler: looking for newly runnable stages
+26/06/10 17:28:29 INFO DAGScheduler: running: Set()
+26/06/10 17:28:29 INFO DAGScheduler: waiting: Set(ResultStage 19)
+26/06/10 17:28:29 INFO DAGScheduler: failed: Set()
+26/06/10 17:28:29 INFO DAGScheduler: Submitting ResultStage 19 (MapPartitionsRDD[76] at map at Word2Vec.scala:454), which has no missing parents
+26/06/10 17:28:29 INFO MemoryStore: Block broadcast_26 stored as values in memory (estimated size 5.9 KiB, free 364.4 MiB)
+26/06/10 17:28:29 INFO MemoryStore: Block broadcast_26_piece0 stored as bytes in memory (estimated size 3.3 KiB, free 364.4 MiB)
+26/06/10 17:28:29 INFO BlockManagerInfo: Added broadcast_26_piece0 in memory on localhost:35133 (size: 3.3 KiB, free: 366.1 MiB)
+26/06/10 17:28:29 INFO SparkContext: Created broadcast 26 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:29 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 19 (MapPartitionsRDD[76] at map at Word2Vec.scala:454) (first 15 tasks are for partitions Vector(0))
+26/06/10 17:28:29 INFO TaskSchedulerImpl: Adding task set 19.0 with 1 tasks resource profile 0
+26/06/10 17:28:29 INFO TaskSetManager: Starting task 0.0 in stage 19.0 (TID 17) (localhost, executor driver, partition 0, NODE_LOCAL, 7433 bytes) 
+26/06/10 17:28:29 INFO Executor: Running task 0.0 in stage 19.0 (TID 17)
+26/06/10 17:28:29 INFO ShuffleBlockFetcherIterator: Getting 1 (46.5 KiB) non-empty blocks including 1 (46.5 KiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/06/10 17:28:29 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/06/10 17:28:29 INFO Executor: Finished task 0.0 in stage 19.0 (TID 17). 51581 bytes result sent to driver
+26/06/10 17:28:29 INFO TaskSetManager: Finished task 0.0 in stage 19.0 (TID 17) in 19 ms on localhost (executor driver) (1/1)
+26/06/10 17:28:29 INFO TaskSchedulerImpl: Removed TaskSet 19.0, whose tasks have all completed, from pool 
+26/06/10 17:28:29 INFO DAGScheduler: ResultStage 19 (collect at Word2Vec.scala:454) finished in 0.024 s
+26/06/10 17:28:29 INFO DAGScheduler: Job 10 is finished. Cancelling potential speculative or zombie tasks for this job
+26/06/10 17:28:29 INFO TaskSchedulerImpl: Killing all running tasks in stage 19: Stage finished
+26/06/10 17:28:29 INFO DAGScheduler: Job 10 finished: collect at Word2Vec.scala:454, took 0.163533 s
+26/06/10 17:28:29 INFO TorrentBroadcast: Destroying Broadcast(22) (from destroy at Word2Vec.scala:468)
+26/06/10 17:28:29 INFO TorrentBroadcast: Destroying Broadcast(23) (from destroy at Word2Vec.scala:469)
+26/06/10 17:28:29 INFO BlockManagerInfo: Removed broadcast_22_piece0 on localhost:35133 in memory (size: 21.6 KiB, free: 366.1 MiB)
+26/06/10 17:28:29 INFO MapPartitionsRDD: Removing RDD 72 from persistence list
+26/06/10 17:28:29 INFO BlockManagerInfo: Removed broadcast_23_piece0 on localhost:35133 in memory (size: 167.0 B, free: 366.1 MiB)
+26/06/10 17:28:29 INFO BlockManager: Removing RDD 72
+26/06/10 17:28:29 INFO TorrentBroadcast: Destroying Broadcast(19) (from destroy at Word2Vec.scala:325)
+26/06/10 17:28:29 INFO TorrentBroadcast: Destroying Broadcast(20) (from destroy at Word2Vec.scala:326)
+26/06/10 17:28:29 INFO TorrentBroadcast: Destroying Broadcast(21) (from destroy at Word2Vec.scala:327)
+26/06/10 17:28:29 INFO BlockManagerInfo: Removed broadcast_20_piece0 on localhost:35133 in memory (size: 5.5 KiB, free: 366.1 MiB)
+26/06/10 17:28:29 INFO BlockManagerInfo: Removed broadcast_19_piece0 on localhost:35133 in memory (size: 4.0 KiB, free: 366.1 MiB)
+26/06/10 17:28:29 INFO BlockManagerInfo: Removed broadcast_21_piece0 on localhost:35133 in memory (size: 2.7 KiB, free: 366.1 MiB)
+26/06/10 17:28:29 INFO MemoryStore: Block broadcast_27 stored as values in memory (estimated size 38.8 KiB, free 364.5 MiB)
+26/06/10 17:28:29 INFO MemoryStore: Block broadcast_27_piece0 stored as bytes in memory (estimated size 24.5 KiB, free 364.5 MiB)
+26/06/10 17:28:29 INFO BlockManagerInfo: Added broadcast_27_piece0 in memory on localhost:35133 (size: 24.5 KiB, free: 366.1 MiB)
+26/06/10 17:28:29 INFO SparkContext: Created broadcast 27 from broadcast at Word2Vec.scala:288
+26/06/10 17:28:29 INFO CodeGenerator: Code generated in 3.145372 ms
+26/06/10 17:28:30 INFO FileSourceStrategy: Pushed Filters: IsNotNull(resume_id)
+26/06/10 17:28:30 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(resume_id#17)
+26/06/10 17:28:30 INFO FileSourceStrategy: Pushed Filters: IsNotNull(resume_id)
+26/06/10 17:28:30 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(resume_id#609)
+26/06/10 17:28:30 INFO FileSourceStrategy: Pushed Filters: IsNotNull(job_id)
+26/06/10 17:28:30 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(job_id#681)
+26/06/10 17:28:30 INFO FileSourceStrategy: Pushed Filters: IsNotNull(job_id)
+26/06/10 17:28:30 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(job_id#651)
+26/06/10 17:28:30 INFO BlockManagerInfo: Removed broadcast_13_piece0 on localhost:35133 in memory (size: 34.7 KiB, free: 366.1 MiB)
+26/06/10 17:28:30 INFO BlockManagerInfo: Removed broadcast_24_piece0 on localhost:35133 in memory (size: 30.1 KiB, free: 366.1 MiB)
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 6.926499 ms
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_28 stored as values in memory (estimated size 350.9 KiB, free 364.6 MiB)
+26/06/10 17:28:30 INFO BlockManagerInfo: Removed broadcast_26_piece0 on localhost:35133 in memory (size: 3.3 KiB, free: 366.1 MiB)
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_28_piece0 stored as bytes in memory (estimated size 34.7 KiB, free 364.6 MiB)
+26/06/10 17:28:30 INFO BlockManagerInfo: Added broadcast_28_piece0 in memory on localhost:35133 (size: 34.7 KiB, free: 366.1 MiB)
+26/06/10 17:28:30 INFO SparkContext: Created broadcast 28 from csv at NativeMethodAccessorImpl.java:0
+26/06/10 17:28:30 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/06/10 17:28:30 INFO BlockManager: Removing RDD 72
+26/06/10 17:28:30 INFO BlockManagerInfo: Removed broadcast_14_piece0 on localhost:35133 in memory (size: 34.7 KiB, free: 366.1 MiB)
+26/06/10 17:28:30 INFO DAGScheduler: Registering RDD 81 (csv at NativeMethodAccessorImpl.java:0) as input to shuffle 7
+26/06/10 17:28:30 INFO DAGScheduler: Got map stage job 11 (csv at NativeMethodAccessorImpl.java:0) with 1 output partitions
+26/06/10 17:28:30 INFO DAGScheduler: Final stage: ShuffleMapStage 20 (csv at NativeMethodAccessorImpl.java:0)
+26/06/10 17:28:30 INFO DAGScheduler: Parents of final stage: List()
+26/06/10 17:28:30 INFO DAGScheduler: Missing parents: List()
+26/06/10 17:28:30 INFO DAGScheduler: Submitting ShuffleMapStage 20 (MapPartitionsRDD[81] at csv at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_29 stored as values in memory (estimated size 36.4 KiB, free 365.0 MiB)
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_29_piece0 stored as bytes in memory (estimated size 16.7 KiB, free 364.9 MiB)
+26/06/10 17:28:30 INFO BlockManagerInfo: Added broadcast_29_piece0 in memory on localhost:35133 (size: 16.7 KiB, free: 366.1 MiB)
+26/06/10 17:28:30 INFO SparkContext: Created broadcast 29 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:30 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 20 (MapPartitionsRDD[81] at csv at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/06/10 17:28:30 INFO TaskSchedulerImpl: Adding task set 20.0 with 1 tasks resource profile 0
+26/06/10 17:28:30 INFO BlockManagerInfo: Removed broadcast_25_piece0 on localhost:35133 in memory (size: 4.4 KiB, free: 366.1 MiB)
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 11.396575 ms
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_30 stored as values in memory (estimated size 350.9 KiB, free 364.6 MiB)
+26/06/10 17:28:30 INFO TaskSetManager: Starting task 0.0 in stage 20.0 (TID 18) (localhost, executor driver, partition 0, ANY, 8225 bytes) 
+26/06/10 17:28:30 INFO Executor: Running task 0.0 in stage 20.0 (TID 18)
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_30_piece0 stored as bytes in memory (estimated size 34.7 KiB, free 364.6 MiB)
+26/06/10 17:28:30 INFO BlockManagerInfo: Added broadcast_30_piece0 in memory on localhost:35133 (size: 34.7 KiB, free: 366.1 MiB)
+26/06/10 17:28:30 INFO SparkContext: Created broadcast 30 from csv at NativeMethodAccessorImpl.java:0
+26/06/10 17:28:30 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/06/10 17:28:30 INFO DAGScheduler: Registering RDD 86 (csv at NativeMethodAccessorImpl.java:0) as input to shuffle 8
+26/06/10 17:28:30 INFO DAGScheduler: Got map stage job 12 (csv at NativeMethodAccessorImpl.java:0) with 1 output partitions
+26/06/10 17:28:30 INFO DAGScheduler: Final stage: ShuffleMapStage 21 (csv at NativeMethodAccessorImpl.java:0)
+26/06/10 17:28:30 INFO DAGScheduler: Parents of final stage: List()
+26/06/10 17:28:30 INFO DAGScheduler: Missing parents: List()
+26/06/10 17:28:30 INFO DAGScheduler: Submitting ShuffleMapStage 21 (MapPartitionsRDD[86] at csv at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 8.405305 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 14.308201 ms
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_32 stored as values in memory (estimated size 350.9 KiB, free 364.2 MiB)
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_31 stored as values in memory (estimated size 34.8 KiB, free 364.5 MiB)
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_31_piece0 stored as bytes in memory (estimated size 16.2 KiB, free 364.2 MiB)
+26/06/10 17:28:30 INFO BlockManagerInfo: Added broadcast_31_piece0 in memory on localhost:35133 (size: 16.2 KiB, free: 366.1 MiB)
+26/06/10 17:28:30 INFO SparkContext: Created broadcast 31 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:30 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 21 (MapPartitionsRDD[86] at csv at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/06/10 17:28:30 INFO TaskSchedulerImpl: Adding task set 21.0 with 1 tasks resource profile 0
+26/06/10 17:28:30 INFO TaskSetManager: Starting task 0.0 in stage 21.0 (TID 19) (localhost, executor driver, partition 0, ANY, 8225 bytes) 
+26/06/10 17:28:30 INFO Executor: Running task 0.0 in stage 21.0 (TID 19)
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_32_piece0 stored as bytes in memory (estimated size 34.7 KiB, free 364.2 MiB)
+26/06/10 17:28:30 INFO BlockManagerInfo: Added broadcast_32_piece0 in memory on localhost:35133 (size: 34.7 KiB, free: 366.0 MiB)
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 7.474789 ms
+26/06/10 17:28:30 INFO SparkContext: Created broadcast 32 from csv at NativeMethodAccessorImpl.java:0
+26/06/10 17:28:30 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/06/10 17:28:30 INFO DAGScheduler: Registering RDD 91 (csv at NativeMethodAccessorImpl.java:0) as input to shuffle 9
+26/06/10 17:28:30 INFO DAGScheduler: Got map stage job 13 (csv at NativeMethodAccessorImpl.java:0) with 1 output partitions
+26/06/10 17:28:30 INFO DAGScheduler: Final stage: ShuffleMapStage 22 (csv at NativeMethodAccessorImpl.java:0)
+26/06/10 17:28:30 INFO DAGScheduler: Parents of final stage: List()
+26/06/10 17:28:30 INFO DAGScheduler: Missing parents: List()
+26/06/10 17:28:30 INFO DAGScheduler: Submitting ShuffleMapStage 22 (MapPartitionsRDD[91] at csv at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 12.89196 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 13.210288 ms
+26/06/10 17:28:30 INFO FileScanRDD: Reading File path: hdfs://localhost:9000/resume_matching/raw_data/resumes.csv, range: 0-3322, partition values: [empty row]
+26/06/10 17:28:30 INFO FileScanRDD: Reading File path: hdfs://localhost:9000/resume_matching/raw_data/resumes.csv, range: 0-3322, partition values: [empty row]
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 13.347719 ms
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_34 stored as values in memory (estimated size 37.5 KiB, free 364.0 MiB)
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_33 stored as values in memory (estimated size 350.9 KiB, free 363.6 MiB)
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_34_piece0 stored as bytes in memory (estimated size 17.0 KiB, free 363.6 MiB)
+26/06/10 17:28:30 INFO BlockManagerInfo: Added broadcast_34_piece0 in memory on localhost:35133 (size: 17.0 KiB, free: 366.0 MiB)
+26/06/10 17:28:30 INFO SparkContext: Created broadcast 34 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:30 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 22 (MapPartitionsRDD[91] at csv at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/06/10 17:28:30 INFO TaskSchedulerImpl: Adding task set 22.0 with 1 tasks resource profile 0
+26/06/10 17:28:30 INFO TaskSetManager: Starting task 0.0 in stage 22.0 (TID 20) (localhost, executor driver, partition 0, ANY, 8222 bytes) 
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_33_piece0 stored as bytes in memory (estimated size 34.7 KiB, free 363.6 MiB)
+26/06/10 17:28:30 INFO BlockManagerInfo: Added broadcast_33_piece0 in memory on localhost:35133 (size: 34.7 KiB, free: 366.0 MiB)
+26/06/10 17:28:30 INFO Executor: Running task 0.0 in stage 22.0 (TID 20)
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 20.420514 ms
+26/06/10 17:28:30 INFO SparkContext: Created broadcast 33 from csv at NativeMethodAccessorImpl.java:0
+26/06/10 17:28:30 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 5.765236 ms
+26/06/10 17:28:30 INFO DAGScheduler: Registering RDD 96 (csv at NativeMethodAccessorImpl.java:0) as input to shuffle 10
+26/06/10 17:28:30 INFO DAGScheduler: Got map stage job 14 (csv at NativeMethodAccessorImpl.java:0) with 1 output partitions
+26/06/10 17:28:30 INFO DAGScheduler: Final stage: ShuffleMapStage 23 (csv at NativeMethodAccessorImpl.java:0)
+26/06/10 17:28:30 INFO DAGScheduler: Parents of final stage: List()
+26/06/10 17:28:30 INFO DAGScheduler: Missing parents: List()
+26/06/10 17:28:30 INFO DAGScheduler: Submitting ShuffleMapStage 23 (MapPartitionsRDD[96] at csv at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/06/10 17:28:30 INFO LineRecordReader: Found UTF-8 BOM and skipped it
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 23.824485 ms
+26/06/10 17:28:30 INFO LineRecordReader: Found UTF-8 BOM and skipped it
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_35 stored as values in memory (estimated size 33.9 KiB, free 359.6 MiB)
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_35_piece0 stored as bytes in memory (estimated size 15.9 KiB, free 359.5 MiB)
+26/06/10 17:28:30 INFO BlockManagerInfo: Added broadcast_35_piece0 in memory on localhost:35133 (size: 15.9 KiB, free: 366.0 MiB)
+26/06/10 17:28:30 INFO SparkContext: Created broadcast 35 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:30 INFO FileScanRDD: Reading File path: hdfs://localhost:9000/resume_matching/raw_data/jobs.csv, range: 0-1817, partition values: [empty row]
+26/06/10 17:28:30 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 23 (MapPartitionsRDD[96] at csv at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/06/10 17:28:30 INFO TaskSchedulerImpl: Adding task set 23.0 with 1 tasks resource profile 0
+26/06/10 17:28:30 INFO TaskSetManager: Starting task 0.0 in stage 23.0 (TID 21) (localhost, executor driver, partition 0, ANY, 8222 bytes) 
+26/06/10 17:28:30 INFO Executor: Running task 0.0 in stage 23.0 (TID 21)
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 12.465007 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 7.842763 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 4.333017 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 5.925194 ms
+26/06/10 17:28:30 INFO LineRecordReader: Found UTF-8 BOM and skipped it
+26/06/10 17:28:30 INFO Executor: Finished task 0.0 in stage 21.0 (TID 19). 2387 bytes result sent to driver
+26/06/10 17:28:30 INFO TaskSetManager: Finished task 0.0 in stage 21.0 (TID 19) in 103 ms on localhost (executor driver) (1/1)
+26/06/10 17:28:30 INFO TaskSchedulerImpl: Removed TaskSet 21.0, whose tasks have all completed, from pool 
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 9.185372 ms
+26/06/10 17:28:30 INFO DAGScheduler: ShuffleMapStage 21 (csv at NativeMethodAccessorImpl.java:0) finished in 0.121 s
+26/06/10 17:28:30 INFO DAGScheduler: looking for newly runnable stages
+26/06/10 17:28:30 INFO DAGScheduler: running: Set(ShuffleMapStage 20, ShuffleMapStage 22, ShuffleMapStage 23)
+26/06/10 17:28:30 INFO DAGScheduler: waiting: Set()
+26/06/10 17:28:30 INFO DAGScheduler: failed: Set()
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 6.750849 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 27.433216 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 6.173855 ms
+26/06/10 17:28:30 INFO Executor: Finished task 0.0 in stage 20.0 (TID 18). 2387 bytes result sent to driver
+26/06/10 17:28:30 INFO FileScanRDD: Reading File path: hdfs://localhost:9000/resume_matching/raw_data/jobs.csv, range: 0-1817, partition values: [empty row]
+26/06/10 17:28:30 INFO TaskSetManager: Finished task 0.0 in stage 20.0 (TID 18) in 156 ms on localhost (executor driver) (1/1)
+26/06/10 17:28:30 INFO TaskSchedulerImpl: Removed TaskSet 20.0, whose tasks have all completed, from pool 
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 6.091993 ms
+26/06/10 17:28:30 INFO DAGScheduler: ShuffleMapStage 20 (csv at NativeMethodAccessorImpl.java:0) finished in 0.172 s
+26/06/10 17:28:30 INFO DAGScheduler: looking for newly runnable stages
+26/06/10 17:28:30 INFO DAGScheduler: running: Set(ShuffleMapStage 22, ShuffleMapStage 23)
+26/06/10 17:28:30 INFO DAGScheduler: waiting: Set()
+26/06/10 17:28:30 INFO DAGScheduler: failed: Set()
+26/06/10 17:28:30 INFO Executor: Finished task 0.0 in stage 22.0 (TID 20). 2387 bytes result sent to driver
+26/06/10 17:28:30 INFO TaskSetManager: Finished task 0.0 in stage 22.0 (TID 20) in 106 ms on localhost (executor driver) (1/1)
+26/06/10 17:28:30 INFO TaskSchedulerImpl: Removed TaskSet 22.0, whose tasks have all completed, from pool 
+26/06/10 17:28:30 INFO LineRecordReader: Found UTF-8 BOM and skipped it
+26/06/10 17:28:30 INFO DAGScheduler: ShuffleMapStage 22 (csv at NativeMethodAccessorImpl.java:0) finished in 0.127 s
+26/06/10 17:28:30 INFO DAGScheduler: looking for newly runnable stages
+26/06/10 17:28:30 INFO DAGScheduler: running: Set(ShuffleMapStage 23)
+26/06/10 17:28:30 INFO DAGScheduler: waiting: Set()
+26/06/10 17:28:30 INFO DAGScheduler: failed: Set()
+26/06/10 17:28:30 INFO Executor: Finished task 0.0 in stage 23.0 (TID 21). 2387 bytes result sent to driver
+26/06/10 17:28:30 INFO TaskSetManager: Finished task 0.0 in stage 23.0 (TID 21) in 74 ms on localhost (executor driver) (1/1)
+26/06/10 17:28:30 INFO TaskSchedulerImpl: Removed TaskSet 23.0, whose tasks have all completed, from pool 
+26/06/10 17:28:30 INFO DAGScheduler: ShuffleMapStage 23 (csv at NativeMethodAccessorImpl.java:0) finished in 0.088 s
+26/06/10 17:28:30 INFO DAGScheduler: looking for newly runnable stages
+26/06/10 17:28:30 INFO DAGScheduler: running: Set()
+26/06/10 17:28:30 INFO DAGScheduler: waiting: Set()
+26/06/10 17:28:30 INFO DAGScheduler: failed: Set()
+26/06/10 17:28:30 INFO ShufflePartitionsUtil: For shuffle(7), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/06/10 17:28:30 INFO ShufflePartitionsUtil: For shuffle(9), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 15.128832 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 11.486273 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 11.782275 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 6.001846 ms
+26/06/10 17:28:30 INFO SparkContext: Starting job: $anonfun$withThreadLocalCaptured$1 at FutureTask.java:266
+26/06/10 17:28:30 INFO DAGScheduler: Got job 15 ($anonfun$withThreadLocalCaptured$1 at FutureTask.java:266) with 1 output partitions
+26/06/10 17:28:30 INFO DAGScheduler: Final stage: ResultStage 25 ($anonfun$withThreadLocalCaptured$1 at FutureTask.java:266)
+26/06/10 17:28:30 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 24)
+26/06/10 17:28:30 INFO DAGScheduler: Missing parents: List()
+26/06/10 17:28:30 INFO DAGScheduler: Submitting ResultStage 25 (MapPartitionsRDD[101] at $anonfun$withThreadLocalCaptured$1 at FutureTask.java:266), which has no missing parents
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_36 stored as values in memory (estimated size 59.2 KiB, free 363.6 MiB)
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_36_piece0 stored as bytes in memory (estimated size 24.3 KiB, free 363.6 MiB)
+26/06/10 17:28:30 INFO BlockManagerInfo: Added broadcast_36_piece0 in memory on localhost:35133 (size: 24.3 KiB, free: 366.0 MiB)
+26/06/10 17:28:30 INFO SparkContext: Created broadcast 36 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:30 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 25 (MapPartitionsRDD[101] at $anonfun$withThreadLocalCaptured$1 at FutureTask.java:266) (first 15 tasks are for partitions Vector(0))
+26/06/10 17:28:30 INFO TaskSchedulerImpl: Adding task set 25.0 with 1 tasks resource profile 0
+26/06/10 17:28:30 INFO SparkContext: Starting job: $anonfun$withThreadLocalCaptured$1 at FutureTask.java:266
+26/06/10 17:28:30 INFO TaskSetManager: Starting task 0.0 in stage 25.0 (TID 22) (localhost, executor driver, partition 0, NODE_LOCAL, 7615 bytes) 
+26/06/10 17:28:30 INFO DAGScheduler: Got job 16 ($anonfun$withThreadLocalCaptured$1 at FutureTask.java:266) with 1 output partitions
+26/06/10 17:28:30 INFO DAGScheduler: Final stage: ResultStage 27 ($anonfun$withThreadLocalCaptured$1 at FutureTask.java:266)
+26/06/10 17:28:30 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 26)
+26/06/10 17:28:30 INFO DAGScheduler: Missing parents: List()
+26/06/10 17:28:30 INFO DAGScheduler: Submitting ResultStage 27 (MapPartitionsRDD[106] at $anonfun$withThreadLocalCaptured$1 at FutureTask.java:266), which has no missing parents
+26/06/10 17:28:30 INFO Executor: Running task 0.0 in stage 25.0 (TID 22)
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_37 stored as values in memory (estimated size 58.6 KiB, free 363.5 MiB)
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_37_piece0 stored as bytes in memory (estimated size 24.2 KiB, free 363.5 MiB)
+26/06/10 17:28:30 INFO BlockManagerInfo: Added broadcast_37_piece0 in memory on localhost:35133 (size: 24.2 KiB, free: 365.9 MiB)
+26/06/10 17:28:30 INFO SparkContext: Created broadcast 37 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:30 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 27 (MapPartitionsRDD[106] at $anonfun$withThreadLocalCaptured$1 at FutureTask.java:266) (first 15 tasks are for partitions Vector(0))
+26/06/10 17:28:30 INFO TaskSchedulerImpl: Adding task set 27.0 with 1 tasks resource profile 0
+26/06/10 17:28:30 INFO TaskSetManager: Starting task 0.0 in stage 27.0 (TID 23) (localhost, executor driver, partition 0, NODE_LOCAL, 7615 bytes) 
+26/06/10 17:28:30 INFO Executor: Running task 0.0 in stage 27.0 (TID 23)
+26/06/10 17:28:30 INFO ShuffleBlockFetcherIterator: Getting 1 (2.6 KiB) non-empty blocks including 1 (2.6 KiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/06/10 17:28:30 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 3 ms
+26/06/10 17:28:30 INFO ShuffleBlockFetcherIterator: Getting 1 (2.2 KiB) non-empty blocks including 1 (2.2 KiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/06/10 17:28:30 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 7.536791 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 8.302471 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 14.159309 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 15.511793 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 5.762296 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 5.840426 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 10.326415 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 5.0506 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 19.866128 ms
+26/06/10 17:28:30 INFO Executor: Finished task 0.0 in stage 27.0 (TID 23). 6559 bytes result sent to driver
+26/06/10 17:28:30 INFO TaskSetManager: Finished task 0.0 in stage 27.0 (TID 23) in 72 ms on localhost (executor driver) (1/1)
+26/06/10 17:28:30 INFO TaskSchedulerImpl: Removed TaskSet 27.0, whose tasks have all completed, from pool 
+26/06/10 17:28:30 INFO DAGScheduler: ResultStage 27 ($anonfun$withThreadLocalCaptured$1 at FutureTask.java:266) finished in 0.080 s
+26/06/10 17:28:30 INFO DAGScheduler: Job 16 is finished. Cancelling potential speculative or zombie tasks for this job
+26/06/10 17:28:30 INFO TaskSchedulerImpl: Killing all running tasks in stage 27: Stage finished
+26/06/10 17:28:30 INFO DAGScheduler: Job 16 finished: $anonfun$withThreadLocalCaptured$1 at FutureTask.java:266, took 0.083513 s
+26/06/10 17:28:30 INFO Executor: Finished task 0.0 in stage 25.0 (TID 22). 7129 bytes result sent to driver
+26/06/10 17:28:30 INFO TaskSetManager: Finished task 0.0 in stage 25.0 (TID 22) in 84 ms on localhost (executor driver) (1/1)
+26/06/10 17:28:30 INFO TaskSchedulerImpl: Removed TaskSet 25.0, whose tasks have all completed, from pool 
+26/06/10 17:28:30 INFO DAGScheduler: ResultStage 25 ($anonfun$withThreadLocalCaptured$1 at FutureTask.java:266) finished in 0.095 s
+26/06/10 17:28:30 INFO DAGScheduler: Job 15 is finished. Cancelling potential speculative or zombie tasks for this job
+26/06/10 17:28:30 INFO TaskSchedulerImpl: Killing all running tasks in stage 25: Stage finished
+26/06/10 17:28:30 INFO DAGScheduler: Job 15 finished: $anonfun$withThreadLocalCaptured$1 at FutureTask.java:266, took 0.120599 s
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 3.06855 ms
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_38 stored as values in memory (estimated size 4.0 MiB, free 359.5 MiB)
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_38_piece0 stored as bytes in memory (estimated size 1947.0 B, free 355.5 MiB)
+26/06/10 17:28:30 INFO BlockManagerInfo: Added broadcast_38_piece0 in memory on localhost:35133 (size: 1947.0 B, free: 365.9 MiB)
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_39 stored as values in memory (estimated size 4.0 MiB, free 355.5 MiB)
+26/06/10 17:28:30 INFO SparkContext: Created broadcast 38 from $anonfun$withThreadLocalCaptured$1 at FutureTask.java:266
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_39_piece0 stored as bytes in memory (estimated size 2.6 KiB, free 355.5 MiB)
+26/06/10 17:28:30 INFO BlockManagerInfo: Added broadcast_39_piece0 in memory on localhost:35133 (size: 2.6 KiB, free: 365.9 MiB)
+26/06/10 17:28:30 INFO SparkContext: Created broadcast 39 from $anonfun$withThreadLocalCaptured$1 at FutureTask.java:266
+26/06/10 17:28:30 INFO ShufflePartitionsUtil: For shuffle(8), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/06/10 17:28:30 INFO ShufflePartitionsUtil: For shuffle(10), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/06/10 17:28:30 INFO BlockManagerInfo: Removed broadcast_37_piece0 on localhost:35133 in memory (size: 24.2 KiB, free: 365.9 MiB)
+26/06/10 17:28:30 INFO BlockManagerInfo: Removed broadcast_34_piece0 on localhost:35133 in memory (size: 17.0 KiB, free: 366.0 MiB)
+26/06/10 17:28:30 INFO BlockManagerInfo: Removed broadcast_29_piece0 on localhost:35133 in memory (size: 16.7 KiB, free: 366.0 MiB)
+26/06/10 17:28:30 INFO BlockManagerInfo: Removed broadcast_36_piece0 on localhost:35133 in memory (size: 24.3 KiB, free: 366.0 MiB)
+26/06/10 17:28:30 INFO BlockManagerInfo: Removed broadcast_31_piece0 on localhost:35133 in memory (size: 16.2 KiB, free: 366.0 MiB)
+26/06/10 17:28:30 INFO BlockManagerInfo: Removed broadcast_35_piece0 on localhost:35133 in memory (size: 15.9 KiB, free: 366.0 MiB)
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 17.455571 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 11.450004 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 6.128288 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 11.273269 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 4.662081 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 4.961403 ms
+26/06/10 17:28:30 INFO SparkContext: Starting job: csv at NativeMethodAccessorImpl.java:0
+26/06/10 17:28:30 INFO DAGScheduler: Got job 17 (csv at NativeMethodAccessorImpl.java:0) with 1 output partitions
+26/06/10 17:28:30 INFO DAGScheduler: Final stage: ResultStage 30 (csv at NativeMethodAccessorImpl.java:0)
+26/06/10 17:28:30 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 28, ShuffleMapStage 29)
+26/06/10 17:28:30 INFO DAGScheduler: Missing parents: List()
+26/06/10 17:28:30 INFO DAGScheduler: Submitting ResultStage 30 (MapPartitionsRDD[122] at csv at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_40 stored as values in memory (estimated size 236.4 KiB, free 355.6 MiB)
+26/06/10 17:28:30 INFO MemoryStore: Block broadcast_40_piece0 stored as bytes in memory (estimated size 80.3 KiB, free 355.6 MiB)
+26/06/10 17:28:30 INFO BlockManagerInfo: Added broadcast_40_piece0 in memory on localhost:35133 (size: 80.3 KiB, free: 366.0 MiB)
+26/06/10 17:28:30 INFO SparkContext: Created broadcast 40 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:30 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 30 (MapPartitionsRDD[122] at csv at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/06/10 17:28:30 INFO TaskSchedulerImpl: Adding task set 30.0 with 1 tasks resource profile 0
+26/06/10 17:28:30 INFO TaskSetManager: Starting task 0.0 in stage 30.0 (TID 24) (localhost, executor driver, partition 0, NODE_LOCAL, 7756 bytes) 
+26/06/10 17:28:30 INFO Executor: Running task 0.0 in stage 30.0 (TID 24)
+26/06/10 17:28:30 INFO ShuffleBlockFetcherIterator: Getting 1 (1835.0 B) non-empty blocks including 1 (1835.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/06/10 17:28:30 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 4.723735 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 5.636606 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 12.842721 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 2.931981 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 5.762657 ms
+26/06/10 17:28:30 INFO ShuffleBlockFetcherIterator: Getting 1 (3.3 KiB) non-empty blocks including 1 (3.3 KiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/06/10 17:28:30 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 5.981416 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 5.943257 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 10.196897 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 5.516265 ms
+26/06/10 17:28:30 INFO CodeGenerator: Code generated in 3.07892 ms
+26/06/10 17:28:31 INFO CodeGenerator: Code generated in 11.488693 ms
+26/06/10 17:28:31 INFO CodeGenerator: Code generated in 21.602961 ms
+26/06/10 17:28:31 INFO CodeGenerator: Code generated in 4.908979 ms
+26/06/10 17:28:31 INFO PythonUDFRunner: Times: total = 926, boot = 424, init = 419, finish = 83
+26/06/10 17:28:31 INFO Executor: Finished task 0.0 in stage 30.0 (TID 24). 20884 bytes result sent to driver
+26/06/10 17:28:31 INFO TaskSetManager: Finished task 0.0 in stage 30.0 (TID 24) in 1133 ms on localhost (executor driver) (1/1)
+26/06/10 17:28:31 INFO TaskSchedulerImpl: Removed TaskSet 30.0, whose tasks have all completed, from pool 
+26/06/10 17:28:31 INFO PythonAccumulatorV2: Connected to AccumulatorServer at host: 127.0.0.1 port: 52765
+26/06/10 17:28:31 INFO DAGScheduler: ResultStage 30 (csv at NativeMethodAccessorImpl.java:0) finished in 1.144 s
+26/06/10 17:28:31 INFO DAGScheduler: Job 17 is finished. Cancelling potential speculative or zombie tasks for this job
+26/06/10 17:28:31 INFO TaskSchedulerImpl: Killing all running tasks in stage 30: Stage finished
+26/06/10 17:28:31 INFO DAGScheduler: Job 17 finished: csv at NativeMethodAccessorImpl.java:0, took 1.149685 s
+26/06/10 17:28:31 INFO DAGScheduler: Registering RDD 123 (csv at NativeMethodAccessorImpl.java:0) as input to shuffle 11
+26/06/10 17:28:31 INFO DAGScheduler: Got map stage job 18 (csv at NativeMethodAccessorImpl.java:0) with 1 output partitions
+26/06/10 17:28:31 INFO DAGScheduler: Final stage: ShuffleMapStage 33 (csv at NativeMethodAccessorImpl.java:0)
+26/06/10 17:28:31 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 31, ShuffleMapStage 32)
+26/06/10 17:28:31 INFO DAGScheduler: Missing parents: List()
+26/06/10 17:28:31 INFO DAGScheduler: Submitting ShuffleMapStage 33 (MapPartitionsRDD[123] at csv at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/06/10 17:28:32 INFO MemoryStore: Block broadcast_41 stored as values in memory (estimated size 236.6 KiB, free 355.3 MiB)
+26/06/10 17:28:32 INFO MemoryStore: Block broadcast_41_piece0 stored as bytes in memory (estimated size 80.5 KiB, free 355.3 MiB)
+26/06/10 17:28:32 INFO BlockManagerInfo: Added broadcast_41_piece0 in memory on localhost:35133 (size: 80.5 KiB, free: 365.9 MiB)
+26/06/10 17:28:32 INFO SparkContext: Created broadcast 41 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:32 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 33 (MapPartitionsRDD[123] at csv at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/06/10 17:28:32 INFO TaskSchedulerImpl: Adding task set 33.0 with 1 tasks resource profile 0
+26/06/10 17:28:32 INFO TaskSetManager: Starting task 0.0 in stage 33.0 (TID 25) (localhost, executor driver, partition 0, NODE_LOCAL, 7745 bytes) 
+26/06/10 17:28:32 INFO Executor: Running task 0.0 in stage 33.0 (TID 25)
+26/06/10 17:28:32 INFO CodeGenerator: Code generated in 6.205728 ms
+26/06/10 17:28:32 INFO ShuffleBlockFetcherIterator: Getting 1 (1835.0 B) non-empty blocks including 1 (1835.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/06/10 17:28:32 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/06/10 17:28:32 INFO ShuffleBlockFetcherIterator: Getting 1 (3.3 KiB) non-empty blocks including 1 (3.3 KiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/06/10 17:28:32 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/06/10 17:28:32 INFO PythonUDFRunner: Times: total = 121, boot = -97, init = 136, finish = 82
+26/06/10 17:28:32 INFO Executor: Finished task 0.0 in stage 33.0 (TID 25). 12965 bytes result sent to driver
+26/06/10 17:28:32 INFO TaskSetManager: Finished task 0.0 in stage 33.0 (TID 25) in 189 ms on localhost (executor driver) (1/1)
+26/06/10 17:28:32 INFO TaskSchedulerImpl: Removed TaskSet 33.0, whose tasks have all completed, from pool 
+26/06/10 17:28:32 INFO DAGScheduler: ShuffleMapStage 33 (csv at NativeMethodAccessorImpl.java:0) finished in 0.203 s
+26/06/10 17:28:32 INFO DAGScheduler: looking for newly runnable stages
+26/06/10 17:28:32 INFO DAGScheduler: running: Set()
+26/06/10 17:28:32 INFO DAGScheduler: waiting: Set()
+26/06/10 17:28:32 INFO DAGScheduler: failed: Set()
+26/06/10 17:28:32 INFO ShufflePartitionsUtil: For shuffle(11), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/06/10 17:28:32 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+26/06/10 17:28:32 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/06/10 17:28:32 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+26/06/10 17:28:32 INFO CodeGenerator: Code generated in 5.035635 ms
+26/06/10 17:28:32 INFO SparkContext: Starting job: csv at NativeMethodAccessorImpl.java:0
+26/06/10 17:28:32 INFO DAGScheduler: Got job 19 (csv at NativeMethodAccessorImpl.java:0) with 1 output partitions
+26/06/10 17:28:32 INFO DAGScheduler: Final stage: ResultStage 37 (csv at NativeMethodAccessorImpl.java:0)
+26/06/10 17:28:32 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 36)
+26/06/10 17:28:32 INFO DAGScheduler: Missing parents: List()
+26/06/10 17:28:32 INFO DAGScheduler: Submitting ResultStage 37 (MapPartitionsRDD[127] at csv at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/06/10 17:28:32 INFO MemoryStore: Block broadcast_42 stored as values in memory (estimated size 376.6 KiB, free 354.9 MiB)
+26/06/10 17:28:32 INFO MemoryStore: Block broadcast_42_piece0 stored as bytes in memory (estimated size 132.0 KiB, free 354.8 MiB)
+26/06/10 17:28:32 INFO BlockManagerInfo: Added broadcast_42_piece0 in memory on localhost:35133 (size: 132.0 KiB, free: 365.8 MiB)
+26/06/10 17:28:32 INFO SparkContext: Created broadcast 42 from broadcast at DAGScheduler.scala:1585
+26/06/10 17:28:32 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 37 (MapPartitionsRDD[127] at csv at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/06/10 17:28:32 INFO TaskSchedulerImpl: Adding task set 37.0 with 1 tasks resource profile 0
+26/06/10 17:28:32 INFO TaskSetManager: Starting task 0.0 in stage 37.0 (TID 26) (localhost, executor driver, partition 0, NODE_LOCAL, 7891 bytes) 
+26/06/10 17:28:32 INFO Executor: Running task 0.0 in stage 37.0 (TID 26)
+26/06/10 17:28:32 INFO BlockManagerInfo: Removed broadcast_40_piece0 on localhost:35133 in memory (size: 80.3 KiB, free: 365.8 MiB)
+26/06/10 17:28:32 INFO BlockManagerInfo: Removed broadcast_41_piece0 on localhost:35133 in memory (size: 80.5 KiB, free: 365.9 MiB)
+26/06/10 17:28:32 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+26/06/10 17:28:32 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/06/10 17:28:32 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+26/06/10 17:28:32 INFO ShuffleBlockFetcherIterator: Getting 1 (20.0 KiB) non-empty blocks including 1 (20.0 KiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/06/10 17:28:32 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/06/10 17:28:32 INFO CodeGenerator: Code generated in 3.946004 ms
+26/06/10 17:28:32 INFO CodeGenerator: Code generated in 4.616751 ms
+26/06/10 17:28:32 INFO CodeGenerator: Code generated in 3.970182 ms
+26/06/10 17:28:32 INFO FileOutputCommitter: Saved output of task 'attempt_202606101728328887499361069578212_0037_m_000000_26' to hdfs://localhost:9000/resume_matching/results/match_results/_temporary/0/task_202606101728328887499361069578212_0037_m_000000
+26/06/10 17:28:32 INFO SparkHadoopMapRedUtil: attempt_202606101728328887499361069578212_0037_m_000000_26: Committed. Elapsed time: 6 ms.
+26/06/10 17:28:32 INFO Executor: Finished task 0.0 in stage 37.0 (TID 26). 15420 bytes result sent to driver
+26/06/10 17:28:32 INFO TaskSetManager: Finished task 0.0 in stage 37.0 (TID 26) in 178 ms on localhost (executor driver) (1/1)
+26/06/10 17:28:32 INFO TaskSchedulerImpl: Removed TaskSet 37.0, whose tasks have all completed, from pool 
+26/06/10 17:28:32 INFO DAGScheduler: ResultStage 37 (csv at NativeMethodAccessorImpl.java:0) finished in 0.206 s
+26/06/10 17:28:32 INFO DAGScheduler: Job 19 is finished. Cancelling potential speculative or zombie tasks for this job
+26/06/10 17:28:32 INFO TaskSchedulerImpl: Killing all running tasks in stage 37: Stage finished
+26/06/10 17:28:32 INFO DAGScheduler: Job 19 finished: csv at NativeMethodAccessorImpl.java:0, took 0.209661 s
+26/06/10 17:28:32 INFO FileFormatWriter: Start to commit write Job 4a450910-f11d-4108-96bc-6b3512b0d1a8.
+26/06/10 17:28:32 INFO FileFormatWriter: Write Job 4a450910-f11d-4108-96bc-6b3512b0d1a8 committed. Elapsed time: 20 ms.
+26/06/10 17:28:32 INFO FileFormatWriter: Finished processing stats for write job 4a450910-f11d-4108-96bc-6b3512b0d1a8.
+[OK] Spark match results written to hdfs:///resume_matching/results/match_results
+26/06/10 17:28:32 INFO SparkContext: SparkContext is stopping with exitCode 0.
+26/06/10 17:28:32 INFO SparkUI: Stopped Spark web UI at http://localhost:4040
+26/06/10 17:28:32 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+26/06/10 17:28:32 INFO MemoryStore: MemoryStore cleared
+26/06/10 17:28:32 INFO BlockManager: BlockManager stopped
+26/06/10 17:28:32 INFO BlockManagerMaster: BlockManagerMaster stopped
+26/06/10 17:28:32 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+26/06/10 17:28:32 INFO SparkContext: Successfully stopped SparkContext
+26/06/10 17:28:33 INFO ShutdownHookManager: Shutdown hook called
+26/06/10 17:28:33 INFO ShutdownHookManager: Deleting directory /tmp/spark-6879a664-73a6-40b0-b5d8-e19489c182d1/pyspark-840ed89f-2013-46ba-bfb3-661efacd5ae9
+26/06/10 17:28:33 INFO ShutdownHookManager: Deleting directory /tmp/spark-6879a664-73a6-40b0-b5d8-e19489c182d1
+26/06/10 17:28:33 INFO ShutdownHookManager: Deleting directory /tmp/spark-fc5eb0ea-9a66-48ba-aa79-f2378b6819d1
++ echo '========== 7. 拉取 Spark 结果 =========='
+========== 7. 拉取 Spark 结果 ==========
++ mkdir -p workflow/11_build_match_results/outputs
++ rm -f workflow/11_build_match_results/outputs/match_results.csv
++ hdfs dfs -getmerge hdfs:///resume_matching/results/match_results workflow/11_build_match_results/outputs/match_results.csv
++ echo '========== 8. 配置 AI =========='
+========== 8. 配置 AI ==========
++ export OPENAI_BASE_URL=http://localhost:11434/v1
++ OPENAI_BASE_URL=http://localhost:11434/v1
++ export OPENAI_API_KEY=ollama
++ OPENAI_API_KEY=ollama
++ export AI_MODEL=qwen2.5:7b
++ AI_MODEL=qwen2.5:7b
++ echo '========== 9. 启动 Streamlit =========='
+========== 9. 启动 Streamlit ==========
++ pkill -f 'streamlit run workflow/12_streamlit_web/app.py'
++ true
++ sleep 3
++ nohup python3 -m streamlit run workflow/12_streamlit_web/app.py --server.address 0.0.0.0 --server.port 8501
++ echo '========== 10. 检查端口 =========='
+========== 10. 检查端口 ==========
++ ss -lntp
++ grep 8501
+LISTEN 0      2048         0.0.0.0:8501       0.0.0.0:*    users:(("python3",pid=24227,fd=6))
++ echo 启动完成，请访问：
+启动完成，请访问：
+++ hostname -I
+++ awk '{print $1}'
++ echo http://192.168.29.128:8501
+http://192.168.29.128:8501
++ EOF
+run_all.sh: 行 64: EOF: 未找到命令
