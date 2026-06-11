@@ -17,6 +17,7 @@ STRUCT_DIR = os.path.join(BASE_DIR, "workflow", "04_structure_data", "outputs")
 MATCH_DIR = os.path.join(BASE_DIR, "workflow", "11_build_match_results", "outputs")
 
 SCORE_DIMS = [
+    "semantic_score",
     "tfidf_score",
     "word2vec_score",
     "city_score",
@@ -28,8 +29,9 @@ SCORE_DIMS = [
 DIM_LABELS = {
     "total_score": "综合匹配分",
     "skill_score": "技能匹配分",
-    "tfidf_score": "文本语义分",
-    "word2vec_score": "Word2Vec语义",
+    "semantic_score": "综合语义分",
+    "tfidf_score": "TF-IDF词面分",
+    "word2vec_score": "Word2Vec语义分",
     "education_score": "学历匹配分",
     "experience_score": "经验匹配分",
     "city_score": "城市匹配",
@@ -79,7 +81,7 @@ def classify(total: float) -> str:
 
 
 def risk_label(row: pd.Series) -> str:
-    if row.get("tfidf_score", 0) < 40 or row.get("word2vec_score", 0) < 40:
+    if row.get("semantic_score", 0) < 40:
         return "语义关联不足"
     if row.get("skill_score", 0) < 60:
         return "技能覆盖不足"
@@ -134,7 +136,7 @@ def show_metrics(row: pd.Series) -> None:
     values = [
         ("综合匹配分", row.get("total_score", 0)),
         ("技能匹配分", row.get("skill_score", 0)),
-        ("文本语义分", row.get("tfidf_score", 0)),
+        ("文本语义分", row.get("semantic_score", 0)),
         ("学历匹配分", row.get("education_score", 0)),
         ("经验匹配分", row.get("experience_score", 0)),
         ("技能缺口数", missing_count),
